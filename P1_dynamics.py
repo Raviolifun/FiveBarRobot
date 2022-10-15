@@ -1,73 +1,243 @@
 import math
 import numpy as np
+# Based all the calculations off a paper titled
+# "A Validation Study of PD Control of a Closed-Chain Mechanical System" by Fathi Ghorbel and Ruvinda Gunawardana
+
+#     E
+#    / \
+#   q3 q4
+#   |   |
+#  q1   q2
+# Shows the numbering system and where each angle is located. Reference the paper for more information
 
 
 class Dynamics:
-    def __init__(self, mass_matrix, length_matrix):
-        self.MA = mass_matrix[0]
-        self.MB = mass_matrix[1]
-        self.MC = mass_matrix[2]
-        self.MD = mass_matrix[3]
+    def __init__(self, bottom_length, mass_matrix, length_matrix, a_length_matrix, q4_initial, i_matrix=None):
+        # mass
+        self.M1 = mass_matrix[0]
+        self.M2 = mass_matrix[1]
+        self.M3 = mass_matrix[2]
+        self.M4 = mass_matrix[3]
 
-        self.L0 = length_matrix[0]
-        self.L1 = length_matrix[1]
-        self.L2 = length_matrix[2]
-        self.L3 = length_matrix[3]
-        self.L4 = length_matrix[4]
+        # Distance to center of mass from base joint
+        self.L1 = length_matrix[0]
+        self.L2 = length_matrix[1]
+        self.L3 = length_matrix[2]
+        self.L4 = length_matrix[3]
+
+        # Lengths of each bar
+        self.LB = bottom_length
+        self.a1 = a_length_matrix[0]
+        self.a2 = a_length_matrix[1]
+        self.a3 = a_length_matrix[2]
+        self.a4 = a_length_matrix[3]
+
+        self.previous_q4 = q4_initial
+
+        def i_calc(m, a, length):
+            return 1/12 * m * a * a + m * length * length
+
+        if i_matrix is not None:
+            self.I1 = i_matrix[0]
+            self.I2 = i_matrix[1]
+            self.I3 = i_matrix[2]
+            self.I4 = i_matrix[3]
+        else:
+            self.I1 = i_calc(self.M1, self.a1, self.L1)
+            self.I2 = i_calc(self.M2, self.a2, self.L2)
+            self.I3 = i_calc(self.M3, self.a3, self.L3)
+            self.I4 = i_calc(self.M4, self.a4, self.L4)
 
         self.g = 9.81
 
+    def get_q3_q4(self, q1, q2):
+
+        # Useful pre-calculations
+        s_1 = math.sin(q1)
+        c_1 = math.cos(q1)
+        s_2 = math.sin(q2)
+        c_2 = math.cos(q2)
+
+        # ==================================================================================
+        # ============ First we must calculate the q3 and q4 joint angles ==================
+        u_q1q2 = self.a2 * s_2 - self.a1 * s_1
+        y_q1q2 = self.a2 * c_2 - self.a1 * c_1 + self.LB
+        c_q1q2 = self.a3**2 - self.a4**2 - y_q1q2**2 - u_q1q2**2
+        b_q1q2 = 2 * self.a4 * u_q1q2
+        a_q1q2 = 2 * self.a4 * y_q1q2
+
+        # Depending on the operating mode, must choose one of these two equations for q4
+        feasibility = a_q1q2**2 + b_q1q2**2 - c_q1q2**2
+        if feasibility < 0:
+            print("Entered singularity, irrecoverable")
+            feasibility = 0.001
+        param_plus = math.sqrt(feasibility)
+        param_minus = -param_plus
+        q4_plus = math.atan2(param_plus, c_q1q2) + math.atan2(b_q1q2, a_q1q2) - q2
+        q4_minus = math.atan2(param_minus, c_q1q2) + math.atan2(b_q1q2, a_q1q2) - q2
+
+        # use the one that was closest to the previous value of q4. Will get wonky around a singularity
+        distance_plus = abs(q4_plus - self.previous_q4)
+        distance_minus = abs(q4_minus - self.previous_q4)
+
+        if distance_plus > distance_minus:
+            q4 = q4_minus
+        else:
+            q4 = q4_plus
+
+        # update the previous q4, so it knows where we're going
+        self.previous_q4 = q4
+
+        # using this value of q4, find q3
+        q3 = math.atan2(u_q1q2 + self.a4 * math.sin(q2 + q4), y_q1q2 + self.a4 * math.cos(q2 + q4)) - q1
+
+        return q3, q4
+
     def f(self, t, y):
-        q1, q2, q3, q4, qd1, qd2, qd3, qd4, T1, T4 = y
+        q1, q2, qd1, qd2, t1, t4 = y
 
-        q = np.array([[q1], [q2], [q3], [q4]])
-        qd = np.array([[qd1], [qd2], [qd3], [qd4]])
-
-        T1 = 0
-        T4 = 1
+        qd = np.array([[qd1], [qd2]])
 
         # ==================================================================================
         # ==============================      Dynamics      ================================
         # ==================================================================================
 
-        C12 = math.cos(q1 - q2)
-        C34 = math.cos(q3 - q4)
-        S12 = math.sin(q1 - q2)
-        S34 = math.sin(q3 - q4)
+        # Useful pre-calculations
+        s_1 = math.sin(q1)
+        c_1 = math.cos(q1)
+        s_2 = math.sin(q2)
+        c_2 = math.cos(q2)
 
-        M1 = np.array([(self.MA/3+self.MB) * self.L1 * self.L1, self.MB * self.L1 * self.L2 / 4 * C12, 0, 0])
-        M2 = np.array([self.MB * self.L1 * self.L2 / 4 * C12, self.MB * self.L2 * self.L2 / 3, 0, 0])
-        M3 = np.array([0, 0, self.MC * self.L3 * self.L3 / 3, self.MC * self.L3 * self.L4 / 4 * C34])
-        M4 = np.array([0, 0, self.MC * self.L3 * self.L4 / 4 * C34, (self.MD/3 + self.MC) * self.L4 * self.L4])
+        # ==================================================================================
+        # ============ First we must calculate the q3 and q4 joint angles ==================
 
-        M = np.array([M1, M2, M3, M4])
+        q3, q4 = self.get_q3_q4(q1, q2)
 
-        inertia_1 = self.MB * self.L1 * self.L2 / 4
-        inertia_2 = self.MC * self.L3 * self.L4 / 4
+        # ==================================================================================
+        # ================ Time to compute qd_prime from q_prime and qd ====================
 
-        C1 = np.array([inertia_1 * qd2 * S12, -inertia_1 * (qd1 - qd2) * S12, 0, 0])
-        C2 = np.array([-inertia_1 * (qd1 - qd2) * S12, -inertia_1 * qd1 * S12, 0, 0])
-        C3 = np.array([0, 0, inertia_2 * qd4 * S34, -inertia_2 * (qd3 - qd4) * S34])
-        C4 = np.array([0, 0, -inertia_2 * (qd3 - qd4) * S34, inertia_2 * qd3 * S34])
+        s_13 = math.sin(q1 + q3)
+        s_24 = math.sin(q2 + q4)
+        c_13 = math.cos(q1 + q3)
+        c_24 = math.cos(q2 + q4)
 
-        C = np.array([C1, C2, C3, C4])
+        phi11 = -self.a1 * s_1 - self.a3 * s_13
+        phi12 = self.a2 * s_2 + self.a4 * s_24
+        phi13 = -self.a3 * s_13
+        phi14 = self.a4 * s_24
+        phi21 = self.a1 * c_1 + self.a3 * c_13
+        phi22 = -self.a2 * c_2 - self.a4 * c_24
+        phi23 = self.a3 * c_13
+        phi24 = -self.a4 * c_24
 
-        T = np.array([[T1], [0], [0], [T4]])
+        phi1 = np.array([phi11, phi12, phi13, phi14])
+        phi2 = np.array([phi21, phi22, phi23, phi24])
+        phi3 = np.array([1, 0, 0, 0])
+        phi4 = np.array([0, 1, 0, 0])
 
-        Th = np.array([[0], [0], [0], [0]])
+        phi = np.array([phi1, phi2, phi3, phi4])
+        phi_inv = np.linalg.inv(phi)
 
-        right_side = (T + Th - np.matmul(C, qd))
-        left_side = np.linalg.inv(M)
+        selection_matrix = np.array([[0, 0], [0, 0], [1, 0], [0, 1]])
+        rho = np.matmul(phi_inv, selection_matrix)
+
+        qd_prime = np.matmul(rho, qd)
+
+        qd3 = qd_prime[2][0]
+        qd4 = qd_prime[3][0]
+
+        # ==================================================================================
+        # =================== Time to compute the gravity matrix g_comp ====================
+
+        g_prime = self.g * np.array([[(self.M1 * self.L1 + self.M3 * self.a1) * c_1 + self.M3 * self.L3 * c_13],
+                                     [(self.M2 * self.L2 + self.M4 * self.a2) * c_2 + self.M4 * self.L4 * c_24],
+                                     [self.M3 * self.L3 * c_13], [self.M4 * self.L4 * c_24]])
+        rho_t = np.transpose(rho)
+        g_comp = np.matmul(rho_t, g_prime)
+
+        # ==================================================================================
+        # =================== Time to compute the inertia matrix d_comp ====================
+
+        c_3 = math.cos(q3)
+        c_4 = math.cos(q4)
+
+        d11 = self.M1 * self.L1**2 + self.M3 * (self.a1**2 + self.L3**2 + 2 * self.a1 * self.L3 * c_3) + self.I1 + self.I3
+        d13 = self.M3 * (self.L3**2 + self.a1 * self.L3 * c_3) + self.I3
+        d22 = self.M2 * self.L2**2 + self.M4 * (self.a2**2 + self.L4**2 + 2 * self.a2 * self.L4 * c_4) + self.I2 + self.I4
+        d24 = self.M4 * (self.L4**2 + self.a2 * self.L4 * c_4) + self.I4
+        d31 = d13
+        d33 = self.M3 * self.L3**2 + self.I3
+        d42 = d24
+        d44 = self.M4 * self.L4**2 + self.I4
+
+        d1 = np.array([d11, 0, d13, 0])
+        d2 = np.array([0, d22, 0, d24])
+        d3 = np.array([d31, 0, d33, 0])
+        d4 = np.array([0, d42, 0, d44])
+
+        d_prime = np.array([d1, d2, d3, d4])
+        d_comp = np.matmul(rho_t, np.matmul(d_prime, rho))
+
+        # ==================================================================================
+        # ================== Time to compute the coriolis matrix c_prime ===================
+
+        s_3 = math.sin(q3)
+        s_4 = math.sin(q4)
+
+        h1 = -self.M3 * self.a1 * self.L3 * s_3
+        h2 = -self.M4 * self.a2 * self.L4 * s_4
+
+        c1 = np.array([h1 * qd3, 0, h1 * (qd1 + qd3), 0])
+        c2 = np.array([0, h2 * qd4, 0, h2 * (qd2 + qd4)])
+        c3 = np.array([-h1 * qd1, 0, 0, 0])
+        c4 = np.array([0, -h2 * qd2, 0, 0])
+
+        c_prime = np.array([c1, c2, c3, c4])
+
+        # ==================================================================================
+        # ======================= Time to compute the rho_d matrix =========================
+
+        phi_d11 = -self.a1 * c_1 * qd1 - self.a3 * c_13 * (qd1 + qd3)
+        phi_d12 = self.a2 * c_2 * qd2 + self.a4 * c_24 * (qd2 + qd4)
+        phi_d13 = -self.a3 * c_13 * (qd1 + qd3)
+        phi_d14 = self.a4 * c_24 * (qd2 + qd4)
+
+        phi_d21 = - self.a1 * s_1 * qd1 - self.a3 * s_13 * (qd1 + qd3)
+        phi_d22 = self.a2 * s_2 * qd2 + self.a4 * s_24 * (qd2 + qd4)
+        phi_d23 = -self.a3 * s_13 * (qd1 + qd3)
+        phi_d24 = self.a4 * s_24 * (qd2 + qd4)
+
+        phi_d1 = np.array([phi_d11, phi_d12, phi_d13, phi_d14])
+        phi_d2 = np.array([phi_d21, phi_d22, phi_d23, phi_d24])
+        phi_d3 = np.array([0, 0, 0, 0])
+        phi_d4 = np.array([0, 0, 0, 0])
+
+        phi_d = np.array([phi_d1, phi_d2, phi_d3, phi_d4])
+        rho_d = np.matmul(-phi_inv, np.matmul(phi_d, rho))
+
+        # ==================================================================================
+        # ====================== Time to compute the c_comp matrix =========================
+
+        c_comp = np.matmul(rho_t, np.matmul(c_prime, rho)) + np.matmul(rho_t, np.matmul(d_prime, rho_d))
+
+        # ==================================================================================
+        # ======================= Time to compute the qdd matrix ===========================
+
+        # This is where we could add reaction forces from a puck or the ground
+        t = np.array([[t1], [t4]])
+
+        right_side = (t - np.matmul(c_comp, qd) - g_comp)
+        left_side = np.linalg.inv(d_comp)
 
         qdd = np.matmul(left_side, right_side)
 
-        qdd1, qdd2, qdd3, qdd4 = qdd
+        qdd1, qdd2 = qdd
 
         # ==================================================================================
         # ===========================     Controller time     ==============================
         # ==================================================================================
 
-        TD1 = 0
-        TD4 = 0
+        td1 = 0
+        td4 = 0
 
-        return [qd1, qd2, qd3, qd4, qdd1, qdd2, qdd3, qdd4, TD1, TD4]
+        return [qd1, qd2, qdd1, qdd2, td1, td4]
