@@ -12,7 +12,7 @@ import numpy as np
 
 
 class Dynamics:
-    def __init__(self, bottom_length, mass_matrix, length_matrix, a_length_matrix, q4_initial, i_matrix=None):
+    def __init__(self, bottom_length, mass_matrix, length_matrix, a_length_matrix, q4_pos, i_matrix=None):
         # mass
         self.M1 = mass_matrix[0]
         self.M2 = mass_matrix[1]
@@ -32,7 +32,7 @@ class Dynamics:
         self.a3 = a_length_matrix[2]
         self.a4 = a_length_matrix[3]
 
-        self.previous_q4 = q4_initial
+        self.q4_pos = q4_pos
 
         def i_calc(m, a, length):
             return 1/12 * m * a * a + m * length * length
@@ -48,9 +48,9 @@ class Dynamics:
             self.I3 = i_calc(self.M3, self.a3, self.L3)
             self.I4 = i_calc(self.M4, self.a4, self.L4)
 
-        self.g = 9.81
+        self.g = 0
 
-    def get_q3_q4(self, q1, q2):
+    def get_q3_q4(self, q1, q2, qd1=0, qd2=0):
 
         # Useful pre-calculations
         s_1 = math.sin(q1)
@@ -68,25 +68,20 @@ class Dynamics:
 
         # Depending on the operating mode, must choose one of these two equations for q4
         feasibility = a_q1q2**2 + b_q1q2**2 - c_q1q2**2
+
         if feasibility < 0:
-            print("Entered singularity, irrecoverable")
-            feasibility = 0.001
-        param_plus = math.sqrt(feasibility)
-        param_minus = -param_plus
-        q4_plus = math.atan2(param_plus, c_q1q2) + math.atan2(b_q1q2, a_q1q2) - q2
-        q4_minus = math.atan2(param_minus, c_q1q2) + math.atan2(b_q1q2, a_q1q2) - q2
+            self.q4_pos = not self.q4_pos
+            print("Entered singularity, recoverable?")
+            feasibility = 0
 
-        # use the one that was closest to the previous value of q4. Will get wonky around a singularity
-        distance_plus = abs(q4_plus - self.previous_q4)
-        distance_minus = abs(q4_minus - self.previous_q4)
-
-        if distance_plus > distance_minus:
-            q4 = q4_minus
+        if self.q4_pos:
+            # plus
+            param = math.sqrt(feasibility)
         else:
-            q4 = q4_plus
+            # minus
+            param = -math.sqrt(feasibility)
 
-        # update the previous q4, so it knows where we're going
-        self.previous_q4 = q4
+        q4 = math.atan2(param, c_q1q2) + math.atan2(b_q1q2, a_q1q2) - q2
 
         # using this value of q4, find q3
         q3 = math.atan2(u_q1q2 + self.a4 * math.sin(q2 + q4), y_q1q2 + self.a4 * math.cos(q2 + q4)) - q1
@@ -136,7 +131,7 @@ class Dynamics:
         phi4 = np.array([0, 1, 0, 0])
 
         phi = np.array([phi1, phi2, phi3, phi4])
-        phi_inv = np.linalg.inv(phi)
+        phi_inv = np.linalg.pinv(phi)
 
         selection_matrix = np.array([[0, 0], [0, 0], [1, 0], [0, 1]])
         rho = np.matmul(phi_inv, selection_matrix)
@@ -227,7 +222,7 @@ class Dynamics:
         t = np.array([[t1], [t4]])
 
         right_side = (t - np.matmul(c_comp, qd) - g_comp)
-        left_side = np.linalg.inv(d_comp)
+        left_side = np.linalg.pinv(d_comp)
 
         qdd = np.matmul(left_side, right_side)
 
