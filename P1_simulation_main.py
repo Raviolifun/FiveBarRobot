@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
-from matplotlib.animation import FuncAnimation
+from matplotlib.animation import FuncAnimation, PillowWriter
 from matplotlib.patches import FancyBboxPatch, BoxStyle, Rectangle
 from scipy.integrate import solve_ivp
 from scipy.interpolate import interp1d
@@ -14,7 +14,7 @@ matplotlib.use('TkAgg')
 if __name__ == '__main__':
     save = False  # Whether it saves the graphs
 
-    tspan = np.linspace(0, 40, 1000)
+    tspan = np.linspace(0, 40, 10000)
     number = 1
 
     def make_plot(name, state):
@@ -36,10 +36,10 @@ if __name__ == '__main__':
         print(i)
 
         # initial parameters
-        mass_matrix = [1, 1, 1, 1]
-        length_matrix = [.5, .5, .5, .5]
-        a_length_matrix = [1, 1, 1, 1]
-        bottom_length = 1
+        mass_matrix = [.1, .1, .1, .1]
+        length_matrix = [.25, .25, .25, .25]
+        a_length_matrix = [.5, .5, .75, .75]
+        bottom_length = 0.125
 
         # initial conditions
         q10 = -math.radians(90)
@@ -47,15 +47,15 @@ if __name__ == '__main__':
 
         # mass_matrix, length_matrix
         dynamics = P1_dynamics.Dynamics(bottom_length, mass_matrix, length_matrix, a_length_matrix, False)
-        dynamics.g = 9.8
+        dynamics.g = 0
 
         # q1, q2, q3, q4, qd1, qd2, qd3, qd4, T1, T4
-        yinit = [q10, q20, 0, 0, 0, 15]
+        yinit = [q10, q20, 0, 0, 0, 1]
 
         # Solve differential equation
         # sol = solve_ivp(lambda t, y: dynamics.f(t, y),
         #                 [tspan[0], tspan[-1]], yinit, t_eval=tspan, rtol=1e-5)
-        sol = solve_ivp(lambda t, y: dynamics.f(t, y), [tspan[0], tspan[-1]], yinit, t_eval=tspan, rtol=1e-8)
+        sol = solve_ivp(lambda t, y: dynamics.f(t, y), [tspan[0], tspan[-1]], yinit, t_eval=tspan, rtol=1e-5)
 
         if sol.status < 0:
             print(sol.message)
@@ -136,8 +136,8 @@ if __name__ == '__main__':
             ax.clear()
             ax.plot(x, y)
             ax.set_aspect('equal')
-            ax.set_xlim(ex_min - 2, ex_max + 2)
-            ax.set_ylim(ey_min - 2, ey_max + 2)
+            ax.set_xlim(ex_min - 1, ex_max + 1)
+            ax.set_ylim(ey_min - 1, ey_max + 1)
 
             # Joint 1
             ts = ax.transData
@@ -172,5 +172,10 @@ if __name__ == '__main__':
         # run the animation
         ani = FuncAnimation(fig, animate, frames=int(time.max()/interval) - 1, interval=interval*1000, repeat=False)
 
-        plt.show()
+        if save:
+            f = r"C:\Users\ravio\Documents\2_School\School 2022-2023\1_Spring\Honors Thesis\FiveBarRobot\Saves\animation.gif"
+            writergif = PillowWriter(fps=30)
+            ani.save(f, writer=writergif)
+        else:
+            plt.show()
 

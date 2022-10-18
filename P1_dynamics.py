@@ -89,7 +89,7 @@ class Dynamics:
         return q3, q4
 
     def f(self, t, y):
-        q1, q2, qd1, qd2, t1, t4 = y
+        q1, q2, qd1, qd2, t1, t2 = y
 
         qd = np.array([[qd1], [qd2]])
 
@@ -131,7 +131,10 @@ class Dynamics:
         phi4 = np.array([0, 1, 0, 0])
 
         phi = np.array([phi1, phi2, phi3, phi4])
-        phi_inv = np.linalg.pinv(phi)
+        try:
+            phi_inv = np.linalg.inv(phi)
+        except np.linalg.LinAlgError as err:
+            phi_inv = np.linalg.pinv(phi)
 
         selection_matrix = np.array([[0, 0], [0, 0], [1, 0], [0, 1]])
         rho = np.matmul(phi_inv, selection_matrix)
@@ -216,23 +219,57 @@ class Dynamics:
         c_comp = np.matmul(rho_t, np.matmul(c_prime, rho)) + np.matmul(rho_t, np.matmul(d_prime, rho_d))
 
         # ==================================================================================
+        # ===========================     Controller time     ==============================
+        # ==================================================================================
+
+        # dirt basic controller, I give it desired positions manually from here
+        goal_q1 = math.radians(90)
+        goal_q2 = math.radians(0)
+
+        error_q1 = goal_q1 - q1
+        error_q2 = goal_q2 - q2
+
+        error_q1 = error_q1 % (2 * math.pi)
+        if abs(error_q1) > math.pi:
+            error_q1 = -error_q1
+
+        error_q2 = error_q2 % (2 * math.pi)
+        if abs(error_q2) > math.pi:
+            error_q2 = -error_q2
+
+        t1 = error_q1 * 10 - qd1 * 1
+        t2 = error_q2 * 10 - qd2 * 1
+
+        max_torque = 5
+
+        if t1 > max_torque:
+            t1 = max_torque
+        elif t1 < -max_torque:
+            t1 = -max_torque
+        if t2 > max_torque:
+            t2 = max_torque
+        elif t2 < -max_torque:
+            t2 = -max_torque
+
+        print((t1, t2))
+
+        # ==================================================================================
         # ======================= Time to compute the qdd matrix ===========================
 
         # This is where we could add reaction forces from a puck or the ground
-        t = np.array([[t1], [t4]])
+        t = np.array([[t1], [t2]])
 
         right_side = (t - np.matmul(c_comp, qd) - g_comp)
-        left_side = np.linalg.pinv(d_comp)
+        try:
+            left_side = np.linalg.inv(d_comp)
+        except np.linalg.LinAlgError as err:
+            left_side = np.linalg.pinv(d_comp)
 
         qdd = np.matmul(left_side, right_side)
 
         qdd1, qdd2 = qdd
 
-        # ==================================================================================
-        # ===========================     Controller time     ==============================
-        # ==================================================================================
-
         td1 = 0
-        td4 = 0
+        td2 = 0
 
-        return [qd1, qd2, qdd1, qdd2, td1, td4]
+        return [qd1, qd2, qdd1, qdd2, td1, td2]
