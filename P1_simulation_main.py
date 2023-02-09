@@ -36,10 +36,10 @@ if __name__ == '__main__':
         print(i)
 
         # initial parameters
-        mass_matrix = [.1, .1, .1, .1]
-        length_matrix = [.25, .25, .25, .25]
-        a_length_matrix = [.5, .5, .75, .75]
-        bottom_length = 0.125
+        mass_matrix = [.048, .048, .074+0.050, .074+0.050]
+        length_matrix = [.163, .163, .450, .450]
+        a_length_matrix = [.3265, .3265, .580, .580]
+        bottom_length = 0.365
 
         # initial conditions
         q10 = -math.radians(90)
