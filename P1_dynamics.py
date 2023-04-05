@@ -223,7 +223,7 @@ class Dynamics:
         # ==================================================================================
 
         # dirt basic controller, I give it desired positions manually from here
-        goal_q1 = math.radians(90)
+        goal_q1 = math.radians(180)
         goal_q2 = math.radians(0)
 
         error_q1 = goal_q1 - q1
