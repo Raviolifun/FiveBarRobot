@@ -41,21 +41,22 @@ if __name__ == '__main__':
         a_length_matrix = [.3265, .3265, .580, .580]
         bottom_length = 0.365
 
-        # initial conditions
-        q10 = -math.radians(90)
-        q20 = -math.radians(90)
-
         # mass_matrix, length_matrix
-        dynamics = P1_dynamics.Dynamics(bottom_length, mass_matrix, length_matrix, a_length_matrix, False)
+        dynamics = P1_dynamics.Dynamics(bottom_length, mass_matrix, length_matrix, a_length_matrix, 0.5, 0.5, 0)
         dynamics.g = 0
 
-        # q1, q2, q3, q4, qd1, qd2, qd3, qd4, T1, T4
-        yinit = [q10, q20, 0, 0, 0, 1]
+        # initial conditions
+        in_angles = dynamics.get_hint_angle()[0]
+        q10 = in_angles[0]
+        q20 = in_angles[1]
+
+        # q1, q2, qd1, qd2, T1, T4
+        yinit = [q10, q20, 0, 0, 0, 0]
 
         # Solve differential equation
         # sol = solve_ivp(lambda t, y: dynamics.f(t, y),
         #                 [tspan[0], tspan[-1]], yinit, t_eval=tspan, rtol=1e-5)
-        sol = solve_ivp(lambda t, y: dynamics.f(t, y), [tspan[0], tspan[-1]], yinit, t_eval=tspan, rtol=1e-5)
+        sol = solve_ivp(lambda t, y: dynamics.f(t, y), [tspan[0], tspan[-1]], yinit, t_eval=tspan, rtol=5e-3)
 
         if sol.status < 0:
             print(sol.message)
@@ -64,7 +65,7 @@ if __name__ == '__main__':
         [q1, q2, qd1, qd2, t1, t4] = sol.y
 
         def compute_end_effectors(q1, q2):
-            q3, q4 = dynamics.get_q3_q4(q1, q2)
+            q3, q4 = dynamics.get_q3_q4(q1, q2, 0.5, 0.5, 0)
 
             ex1 = math.cos(q1) * dynamics.a1
             ey1 = math.sin(q1) * dynamics.a1
@@ -102,6 +103,16 @@ if __name__ == '__main__':
         else:
             plt.show()
 
+        ###############################################################
+        #                     Inverse Kinematics                      #
+        ###############################################################
+
+
+
+        ###############################################################
+        #                          Animation                          #
+        ###############################################################
+
         # create empty lists for the x and y data
         x = []
         y = []
@@ -127,6 +138,7 @@ if __name__ == '__main__':
 
         box_style = BoxStyle("Round", pad=0)
 
+        # My current guess is that my animation is screwing up the rotation matrices at some point...
         def animate(i):
             time = i * interval
 

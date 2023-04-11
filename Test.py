@@ -2,26 +2,20 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import matplotlib as mpl
+import P1_dynamics
+import math
 
-fig = plt.figure()
-ax = fig.add_subplot(111)
-ax.set_xlim(-0.05, 1)
-ax.set_ylim(-0.05, 1)
-plt.grid('on')
+# initial parameters
+mass_matrix = [.048, .048, .074+0.050, .074+0.050]
+length_matrix = [.163, .163, .450, .450]
+a_length_matrix = [.3265, .3265, .580, .580]
+bottom_length = 0.365
 
+# mass_matrix, length_matrix
+dynamics = P1_dynamics.Dynamics(bottom_length, mass_matrix, length_matrix, a_length_matrix, -0.4, 0.6)
+dynamics.g = 0
 
-
-#Rotate rectangle patch object
-ts = ax.transData
-coords = ts.transform([0.2, 0.5])
-tr = mpl.transforms.Affine2D().rotate_deg_around(coords[0], coords[1], 90)
-t = ts + tr
-
-rec0 = patches.Rectangle((0.2, 0.5), 0.25, 0.2)
-ax.add_patch(rec0)
-
-#Rotated rectangle patch
-rect1 = patches.Rectangle((0.2, 0.5), 0.25, 0.2, transform=t)
-ax.add_patch(rect1)
-
-plt.show()
+angle = dynamics.get_hint_angle()
+print(angle)
+position = dynamics.forward_kinematics(*angle)
+print(position)

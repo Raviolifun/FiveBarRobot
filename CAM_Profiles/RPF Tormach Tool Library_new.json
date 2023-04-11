@@ -1,0 +1,3689 @@
+{
+    "data": [
+        {
+            "BMC": "carbide",
+            "description": " 2 FL REG BALL CARB EM: 1/4 x 1/4 x 3/4 x 2-1/2",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.25,
+                "HAND": true,
+                "LB": 0.45,
+                "LCF": 0.393700787401575,
+                "NOF": 2,
+                "OAL": 2.5,
+                "SFDM": 0.25,
+                "shoulder-length": 0.433070866141732
+            },
+            "guid": "4742ad41-6b94-4451-b42a-d81247313cd8",
+            "holder": {
+                "description": "TTS-ER20 Holder",
+                "guid": "b3fbaa4f-a1de-4b17-8415-9d20a31dd1db",
+                "last_modified": 1669994267727,
+                "product-id": "31829",
+                "product-link": "",
+                "reference_guid": "<NEW TOOL GUID>",
+                "segments": [
+                    {
+                        "height": 3.3,
+                        "lower-diameter": 26,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 19,
+                        "lower-diameter": 34,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 15,
+                        "lower-diameter": 25,
+                        "upper-diameter": 25
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000003,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 1,
+                "length-offset": 1,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 1,
+                "turret": 0
+            },
+            "product-id": "37371",
+            "product-link": "https://tormach.com/2-fl-reg-ball-carb-em-1-4-x-1-4-x-3-4-x-2-1-2-37371.html",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.00262467191601,
+                        "f_z": 0.003937007874016,
+                        "guid": "e72c5cb6-2f13-4b3e-bfc8-ac621f247a88",
+                        "n": 5000,
+                        "n_ramp": 5000,
+                        "name": "Default preset",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 327.2492347489367,
+                        "v_f": 39.37007874015748,
+                        "v_f_leadIn": 39.37007874015748,
+                        "v_f_leadOut": 39.37007874015748,
+                        "v_f_plunge": 13.123359580052496,
+                        "v_f_ramp": 13.123359580052496
+                    }
+                ]
+            },
+            "type": "ball end mill",
+            "unit": "inches",
+            "vendor": "Tormach"
+        },
+        {
+            "BMC": "carbide",
+            "description": "3 FL REG SQUARE CARB EM: 1/8 x 1/8 x 3/8 x 1-1/2",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.125,
+                "HAND": true,
+                "LB": 0.6626,
+                "LCF": 0.375,
+                "NOF": 3,
+                "OAL": 1.5,
+                "SFDM": 0.125,
+                "shoulder-length": 0.375
+            },
+            "guid": "8fb9122f-14b1-4195-9d25-a9eb64d5a18b",
+            "holder": {
+                "description": "TTS-ER20 Holder",
+                "guid": "b3fbaa4f-a1de-4b17-8415-9d20a31dd1db",
+                "last_modified": 1669994267727,
+                "product-id": "31829",
+                "product-link": "",
+                "reference_guid": "<NEW TOOL GUID>",
+                "segments": [
+                    {
+                        "height": 3.3,
+                        "lower-diameter": 26,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 19,
+                        "lower-diameter": 34,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 15,
+                        "lower-diameter": 25,
+                        "upper-diameter": 25
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 3,
+                "length-offset": 3,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 3,
+                "turret": 0
+            },
+            "product-id": "37367",
+            "product-link": "https://tormach.com/3-fl-reg-square-carb-em-1-8-x-1-8-x-3-8-x-1-1-2-37367.html",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.001717843751963,
+                        "f_z": 0.0016,
+                        "guid": "d96622f0-606f-4e2f-8979-eaf16697eccf",
+                        "n": 7639.437268410977,
+                        "n_ramp": 7639.437268410977,
+                        "name": "ALuminium Preset",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 250,
+                        "v_f": 36.669298888372694,
+                        "v_f_leadIn": 36.669298888372694,
+                        "v_f_leadOut": 36.669298888372694,
+                        "v_f_plunge": 13.123359580052496,
+                        "v_f_ramp": 13.123359580052496
+                    }
+                ]
+            },
+            "type": "flat end mill",
+            "unit": "inches",
+            "vendor": "Tormach"
+        },
+        {
+            "BMC": "carbide",
+            "description": " 3 FL REG SQUARE CARB EM: 1/2 x 1/2 x 1-1/4 x 3",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.5,
+                "HAND": true,
+                "LB": 1.27,
+                "LCF": 1.25,
+                "NOF": 3,
+                "OAL": 3,
+                "SFDM": 0.5,
+                "shoulder-length": 1.25
+            },
+            "guid": "bd007ff6-9405-4c12-9233-fe74e8a32328",
+            "holder": {
+                "description": "TTS-ER20 Holder",
+                "guid": "b3fbaa4f-a1de-4b17-8415-9d20a31dd1db",
+                "last_modified": 1669994267727,
+                "product-id": "31829",
+                "product-link": "",
+                "reference_guid": "<NEW TOOL GUID>",
+                "segments": [
+                    {
+                        "height": 3.3,
+                        "lower-diameter": 26,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 19,
+                        "lower-diameter": 34,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 15,
+                        "lower-diameter": 25,
+                        "upper-diameter": 25
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 2,
+                "length-offset": 2,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 2,
+                "turret": 0
+            },
+            "product-id": "37374",
+            "product-link": "https://tormach.com/3-fl-reg-square-carb-em-1-2-x-1-2-x-1-1-4-x-3-37374.html",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.002863072919938,
+                        "f_z": 0.0055,
+                        "guid": "05b2e123-09c4-4a85-a767-28ba920b2be0",
+                        "n": 4583.662361046586,
+                        "n_ramp": 4583.662361046586,
+                        "name": "Aluminium Preset",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 600,
+                        "v_f": 75.63042895726866,
+                        "v_f_leadIn": 75.63042895726866,
+                        "v_f_leadOut": 75.63042895726866,
+                        "v_f_plunge": 13.123359580052496,
+                        "v_f_ramp": 13.123359580052496
+                    },
+                    {
+                        "f_n": 0.006871375007852,
+                        "f_z": 0.004,
+                        "guid": "cb80454a-d5a7-4cc9-aa6e-ea8461a1eb3d",
+                        "n": 1909.859317102744,
+                        "n_ramp": 1909.859317102744,
+                        "name": "Aluminium Consv Preset",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 250,
+                        "v_f": 22.91831180523293,
+                        "v_f_leadIn": 22.91831180523293,
+                        "v_f_leadOut": 22.91831180523293,
+                        "v_f_plunge": 13.123359580052496,
+                        "v_f_ramp": 13.123359580052496
+                    }
+                ]
+            },
+            "type": "flat end mill",
+            "unit": "inches",
+            "vendor": "Tormach"
+        },
+        {
+            "BMC": "carbide",
+            "description": "3 FL REG SQUARE CARB EM: 3/8 x 3/8 x 1 x 2-1/2",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.375,
+                "HAND": true,
+                "LB": 1.4307,
+                "LCF": 1,
+                "NOF": 3,
+                "OAL": 2.5,
+                "SFDM": 0.375,
+                "shoulder-length": 1
+            },
+            "guid": "d5a1a282-3e73-4279-9089-ccd3b5428faf",
+            "holder": {
+                "description": "TTS-ER20 Holder",
+                "guid": "b3fbaa4f-a1de-4b17-8415-9d20a31dd1db",
+                "last_modified": 1669994267727,
+                "product-id": "31829",
+                "product-link": "",
+                "reference_guid": "<NEW TOOL GUID>",
+                "segments": [
+                    {
+                        "height": 3.3,
+                        "lower-diameter": 26,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 19,
+                        "lower-diameter": 34,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 15,
+                        "lower-diameter": 25,
+                        "upper-diameter": 25
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 4,
+                "length-offset": 4,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 4,
+                "turret": 0
+            },
+            "product-id": "37372",
+            "product-link": "https://tormach.com/3-fl-reg-square-carb-em-3-8-x-3-8-x-1-x-2-1-2-37372.html",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.002863072919938,
+                        "f_z": 0.004,
+                        "guid": "e03e98d4-3126-4583-bb6a-145abb5bf1c6",
+                        "n": 4583.662361046586,
+                        "n_ramp": 4583.662361046586,
+                        "name": "Aluminium Slower Preset",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 450,
+                        "v_f": 55.00394833255904,
+                        "v_f_leadIn": 55.00394833255904,
+                        "v_f_leadOut": 55.00394833255904,
+                        "v_f_plunge": 13.123359580052496,
+                        "v_f_ramp": 13.123359580052496
+                    },
+                    {
+                        "f_n": 0.005153531255889,
+                        "f_z": 0.004,
+                        "guid": "315e2f30-66b8-46a3-8384-5d1bc2b00be9",
+                        "n": 2546.4790894703265,
+                        "n_ramp": 2546.4790894703265,
+                        "name": "Aluminium Consv Preset",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 250.00000000000003,
+                        "v_f": 30.55774907364392,
+                        "v_f_leadIn": 30.55774907364392,
+                        "v_f_leadOut": 30.55774907364392,
+                        "v_f_plunge": 13.123359580052496,
+                        "v_f_ramp": 13.123359580052496
+                    }
+                ]
+            },
+            "type": "flat end mill",
+            "unit": "inches",
+            "vendor": "Tormach"
+        },
+        {
+            "BMC": "carbide",
+            "description": " 2 FL REG CARBIDE BALL ENDMILL: 1/8 x 1/8 x 3/8 x 3",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.125,
+                "HAND": true,
+                "LB": 1.5,
+                "LCF": 0.375,
+                "NOF": 2,
+                "OAL": 3,
+                "SFDM": 0.125,
+                "shoulder-length": 0.38
+            },
+            "guid": "d9fa8d4d-89f9-483f-a1e6-e2f53ab80656",
+            "holder": {
+                "description": "TTS-ER20 Holder",
+                "guid": "b3fbaa4f-a1de-4b17-8415-9d20a31dd1db",
+                "last_modified": 1669994267727,
+                "product-id": "31829",
+                "product-link": "",
+                "reference_guid": "<NEW TOOL GUID>",
+                "segments": [
+                    {
+                        "height": 3.3,
+                        "lower-diameter": 26,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 19,
+                        "lower-diameter": 34,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 15,
+                        "lower-diameter": 25,
+                        "upper-diameter": 25
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 5,
+                "length-offset": 5,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 5,
+                "turret": 0
+            },
+            "product-id": "37368 ",
+            "product-link": "https://tormach.com/2-fl-reg-ball-em-1-8-x-1-8-x-3-8-x-1-1-2-37368.html",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.00262467191601,
+                        "f_z": 0.003937007874016,
+                        "guid": "343feae4-2832-48e8-85df-f7c26e06e6f2",
+                        "n": 5000,
+                        "n_ramp": 5000,
+                        "name": "Default preset",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 163.62461737446836,
+                        "v_f": 39.37007874015748,
+                        "v_f_leadIn": 39.37007874015748,
+                        "v_f_leadOut": 39.37007874015748,
+                        "v_f_plunge": 13.123359580052496,
+                        "v_f_ramp": 13.123359580052496
+                    }
+                ]
+            },
+            "type": "ball end mill",
+            "unit": "inches",
+            "vendor": "Tormach"
+        },
+        {
+            "BMC": "carbide",
+            "description": "Face Mill - 38 mm",
+            "geometry": {
+                "CSP": false,
+                "DC": 1.496062992125984,
+                "HAND": true,
+                "LB": 0.441,
+                "LCF": 0.25,
+                "NOF": 4,
+                "OAL": 1.377952755905512,
+                "RE": 0,
+                "SFDM": 1.496062992125984,
+                "TA": 0,
+                "shoulder-length": 0.25
+            },
+            "guid": "e5ef228a-36d8-420c-be39-58701aa451a9",
+            "holder": {
+                "description": "TTS-1/2\" Set Screw Holder",
+                "guid": "155485ed-f9ad-4059-abc4-5dba32e463bb",
+                "product-id": "31821",
+                "product-link": "https://tormach.com/tts-set-screw-holder-31821.html",
+                "segments": [
+                    {
+                        "height": 10.72,
+                        "lower-diameter": 22,
+                        "upper-diameter": 32
+                    },
+                    {
+                        "height": 19,
+                        "lower-diameter": 32,
+                        "upper-diameter": 32
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 6,
+                "length-offset": 6,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 6,
+                "turret": 0
+            },
+            "product-id": "31280",
+            "product-link": "https://tormach.com/face-mill-38mm-31280.html",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.003671432090809,
+                        "f_z": 0.004,
+                        "guid": "9f4dc4c0-78a8-429a-8d13-254b968e9d77",
+                        "n": 3574.4524903249257,
+                        "n_ramp": 3574.4524903249257,
+                        "name": "Aluminium Preset",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 1399.9999999999998,
+                        "v_f": 57.19123984519882,
+                        "v_f_leadIn": 57.19123984519882,
+                        "v_f_leadOut": 57.19123984519882,
+                        "v_f_plunge": 13.123359580052496,
+                        "v_f_ramp": 13.123359580052496
+                    },
+                    {
+                        "f_n": 0.005711116585704,
+                        "f_z": 0.004,
+                        "guid": "60ed0749-3a55-46e6-b920-5ca93e80830d",
+                        "n": 2297.862315208881,
+                        "n_ramp": 2297.862315208881,
+                        "name": "Aluminium Consv Preset ",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 899.9999999999998,
+                        "v_f": 36.7657970433421,
+                        "v_f_leadIn": 36.7657970433421,
+                        "v_f_leadOut": 36.7657970433421,
+                        "v_f_plunge": 13.123359580052496,
+                        "v_f_ramp": 13.123359580052496
+                    }
+                ]
+            },
+            "type": "face mill",
+            "unit": "inches",
+            "vendor": "Tormach"
+        },
+        {
+            "BMC": "carbide",
+            "description": "1/4 3 Flute Carbide End Mill SE 38 Deg Helix .500 loc ZrN Coated",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.25,
+                "HAND": true,
+                "LB": 0.51,
+                "LCF": 0.5,
+                "NOF": 3,
+                "OAL": 2.5,
+                "SFDM": 0.25,
+                "shoulder-length": 0.5
+            },
+            "guid": "2b74c247-6262-4a04-9573-2ba867565731",
+            "holder": {
+                "description": "TTS-ER20 Holder",
+                "guid": "b3fbaa4f-a1de-4b17-8415-9d20a31dd1db",
+                "last_modified": 1669994267727,
+                "product-id": "31829",
+                "product-link": "",
+                "reference_guid": "<NEW TOOL GUID>",
+                "segments": [
+                    {
+                        "height": 3.3,
+                        "lower-diameter": 26,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 19,
+                        "lower-diameter": 34,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 15,
+                        "lower-diameter": 25,
+                        "upper-diameter": 25
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 7,
+                "length-offset": 7,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 7,
+                "turret": 0
+            },
+            "product-id": "1021-.250-.500-ZrN",
+            "product-link": "https://www.maritool.com/product_info.php?products_id=12766",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.002181661564993,
+                        "f_z": 0.0026,
+                        "guid": "9f5e31ff-8d25-49e0-bdfd-152b63ea6102",
+                        "n": 6111.549814728784,
+                        "n_ramp": 6111.549814728784,
+                        "name": "Aluminium Preset",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 400.00000000000017,
+                        "v_f": 47.6700885548845,
+                        "v_f_leadIn": 47.6700885548845,
+                        "v_f_leadOut": 47.6700885548845,
+                        "v_f_plunge": 13.333333333333336,
+                        "v_f_ramp": 13.333333333333336
+                    },
+                    {
+                        "f_n": 0.003490658503989,
+                        "f_z": 0.0026,
+                        "guid": "8805e27f-0ba9-4b66-9c47-8db97e7f2877",
+                        "n": 3819.718634205488,
+                        "n_ramp": 3819.718634205488,
+                        "name": "Aluminium Consv Preset ",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 250.00000000000003,
+                        "v_f": 29.79380534680281,
+                        "v_f_leadIn": 29.79380534680281,
+                        "v_f_leadOut": 29.79380534680281,
+                        "v_f_plunge": 13.333333333333336,
+                        "v_f_ramp": 13.333333333333336
+                    }
+                ]
+            },
+            "type": "flat end mill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "BMC": "carbide",
+            "description": ".5000 Solid Carbide Chucking Reamer",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.5,
+                "HAND": true,
+                "LB": 2,
+                "LCF": 1.5,
+                "NOF": 6,
+                "OAL": 4,
+                "SFDM": 0.5,
+                "shoulder-length": 1.5
+            },
+            "guid": "8dda7872-b236-4e95-9b2d-b42244595095",
+            "holder": {
+                "description": "TTS-ER20 Holder",
+                "guid": "361f376a-438a-4604-a310-ce748909b9dd",
+                "product-id": "31829",
+                "product-link": "",
+                "segments": [
+                    {
+                        "height": 3.3,
+                        "lower-diameter": 26,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 19,
+                        "lower-diameter": 34,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 15,
+                        "lower-diameter": 25,
+                        "upper-diameter": 25
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000003,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 8,
+                "length-offset": 8,
+                "live": false,
+                "manual-tool-change": false,
+                "number": 8,
+                "turret": 0
+            },
+            "product-id": "1375-.5000",
+            "product-link": "https://www.maritool.com/product_info.php?products_id=5885",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.013,
+                        "guid": "1c3a52ac-b153-483d-96fa-addf40dbd41d",
+                        "n": 1145.9155902616465,
+                        "name": "Aluminium Preset Consv",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": false,
+                        "v_c": 150,
+                        "v_f_plunge": 14.896902673401405,
+                        "v_f_retract": 39.37007874015748
+                    },
+                    {
+                        "f_n": 0.013,
+                        "guid": "34949fa6-61db-41c1-9a66-e74b17617025",
+                        "n": 1909.859317102744,
+                        "name": "Aluminium Preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": false,
+                        "v_c": 250.00000000000003,
+                        "v_f_plunge": 24.82817112233568,
+                        "v_f_retract": 39.37007874015748
+                    }
+                ]
+            },
+            "type": "reamer",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "BMC": "hss",
+            "description": "1/4 x 120 degree High Speed Steel Spotting Drill Short Length",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.25,
+                "HAND": true,
+                "LB": 1.5,
+                "LCF": 1,
+                "NOF": 2,
+                "OAL": 2.5,
+                "SFDM": 0.25,
+                "SIG": 120,
+                "shoulder-length": 1,
+                "tip-diameter": 0
+            },
+            "guid": "d2c2e1f5-3f2f-4dca-b93f-441c79b58314",
+            "holder": {
+                "description": "TTS-ER20 Holder",
+                "guid": "b3fbaa4f-a1de-4b17-8415-9d20a31dd1db",
+                "last_modified": 1669994267727,
+                "product-id": "31829",
+                "product-link": "",
+                "reference_guid": "<NEW TOOL GUID>",
+                "segments": [
+                    {
+                        "height": 3.3,
+                        "lower-diameter": 26,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 19,
+                        "lower-diameter": 34,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 15,
+                        "lower-diameter": 25,
+                        "upper-diameter": 25
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 9,
+                "length-offset": 9,
+                "live": false,
+                "manual-tool-change": false,
+                "number": 9,
+                "turret": 0
+            },
+            "product-id": "5430-.250-120",
+            "product-link": "https://www.maritool.com/product_info.php?products_id=14340",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.0035,
+                        "f_n_retract": 0.0035,
+                        "f_z": 0.006,
+                        "guid": "bb7674d9-ed75-449d-a054-51f4d3189494",
+                        "n": 3819.718634205488,
+                        "name": "Aluminium Preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": true,
+                        "v_c": 250.00000000000003,
+                        "v_f": 45.83662361046586,
+                        "v_f_leadIn": 45.83662361046586,
+                        "v_f_leadOut": 45.83662361046586,
+                        "v_f_ramp": 13.123359580052496
+                    }
+                ]
+            },
+            "type": "spot drill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "description": "TTS-1/2\" Set Screw Holder",
+            "guid": "155485ed-f9ad-4059-abc4-5dba32e463bb",
+            "product-id": "31821",
+            "product-link": "https://tormach.com/tts-set-screw-holder-31821.html",
+            "segments": [
+                {
+                    "height": 10.72,
+                    "lower-diameter": 22,
+                    "upper-diameter": 32
+                },
+                {
+                    "height": 19,
+                    "lower-diameter": 32,
+                    "upper-diameter": 32
+                },
+                {
+                    "height": 6.7,
+                    "lower-diameter": 38.1,
+                    "upper-diameter": 38.1
+                },
+                {
+                    "height": 2.4,
+                    "lower-diameter": 29.50000000000001,
+                    "upper-diameter": 29.50000000000001
+                },
+                {
+                    "height": 6.830000000000005,
+                    "lower-diameter": 38.1,
+                    "upper-diameter": 38.1
+                }
+            ],
+            "type": "holder",
+            "unit": "millimeters",
+            "vendor": "Tormach"
+        },
+        {
+            "description": "TTS-3/8\" Set Screw Holder",
+            "guid": "52e41cc1-6492-4336-a652-12acd0e42adc",
+            "product-id": "31820",
+            "product-link": "https://tormach.com/tts-set-screw-holder-31820-html.html",
+            "segments": [
+                {
+                    "height": 10.72,
+                    "lower-diameter": 22,
+                    "upper-diameter": 32
+                },
+                {
+                    "height": 19,
+                    "lower-diameter": 32,
+                    "upper-diameter": 32
+                },
+                {
+                    "height": 6.7,
+                    "lower-diameter": 38.1,
+                    "upper-diameter": 38.1
+                },
+                {
+                    "height": 2.4,
+                    "lower-diameter": 29.50000000000001,
+                    "upper-diameter": 29.50000000000001
+                },
+                {
+                    "height": 6.830000000000005,
+                    "lower-diameter": 38.1,
+                    "upper-diameter": 38.1
+                }
+            ],
+            "type": "holder",
+            "unit": "millimeters",
+            "vendor": "Tormach"
+        },
+        {
+            "description": "TTS-JT1 Holder with 1/4\"\" Drill Chuck",
+            "guid": "ae642cbb-2e8b-4a0e-8dc2-99c82bf6ea3c",
+            "product-id": "30102",
+            "product-link": "https://tormach.com/drill-chuck-jt1-30102.html",
+            "segments": [
+                {
+                    "height": 5,
+                    "lower-diameter": 17.5,
+                    "upper-diameter": 22
+                },
+                {
+                    "height": 10,
+                    "lower-diameter": 22,
+                    "upper-diameter": 22
+                },
+                {
+                    "height": 1.5,
+                    "lower-diameter": 22,
+                    "upper-diameter": 31
+                },
+                {
+                    "height": 23,
+                    "lower-diameter": 31,
+                    "upper-diameter": 31
+                },
+                {
+                    "height": 3.5,
+                    "lower-diameter": 31,
+                    "upper-diameter": 18
+                },
+                {
+                    "height": 2,
+                    "lower-diameter": 18,
+                    "upper-diameter": 18
+                },
+                {
+                    "height": 6.7,
+                    "lower-diameter": 38.1,
+                    "upper-diameter": 38.1
+                },
+                {
+                    "height": 2.4,
+                    "lower-diameter": 29.50000000000001,
+                    "upper-diameter": 29.50000000000001
+                },
+                {
+                    "height": 6.830000000000005,
+                    "lower-diameter": 38.1,
+                    "upper-diameter": 38.1
+                }
+            ],
+            "type": "holder",
+            "unit": "millimeters",
+            "vendor": "Tormach"
+        },
+        {
+            "description": "TTS-Diamond Drag Engraver Holder",
+            "guid": "b3fbaa4f-a1de-4b17-8415-9d20a31dd1db",
+            "product-id": "32447",
+            "product-link": "https://tormach.com/tts-diamond-engraver-kit-32447.html",
+            "segments": [
+                {
+                    "height": 5,
+                    "lower-diameter": 10,
+                    "upper-diameter": 19
+                },
+                {
+                    "height": 40,
+                    "lower-diameter": 19,
+                    "upper-diameter": 19
+                },
+                {
+                    "height": 6.7,
+                    "lower-diameter": 38.1,
+                    "upper-diameter": 38.1
+                },
+                {
+                    "height": 2.4,
+                    "lower-diameter": 29.50000000000001,
+                    "upper-diameter": 29.50000000000001
+                },
+                {
+                    "height": 6.830000000000003,
+                    "lower-diameter": 38.1,
+                    "upper-diameter": 38.1
+                }
+            ],
+            "type": "holder",
+            "unit": "millimeters",
+            "vendor": "Tormach"
+        },
+        {
+            "BMC": "hss",
+            "description": "1/2 x 120 degree High Speed Steel Spotting Drill Short Length",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.5,
+                "HAND": true,
+                "LB": 2,
+                "LCF": 1.5,
+                "NOF": 2,
+                "OAL": 3.75,
+                "SFDM": 0.5,
+                "SIG": 120,
+                "shoulder-length": 1.5,
+                "tip-diameter": 0
+            },
+            "guid": "0d0d5606-1fe7-4a1f-bbcf-5704fc8b34fc",
+            "holder": {
+                "description": "TTS-ER20 Holder",
+                "guid": "b3fbaa4f-a1de-4b17-8415-9d20a31dd1db",
+                "last_modified": 1669994267727,
+                "product-id": "31829",
+                "product-link": "",
+                "reference_guid": "<NEW TOOL GUID>",
+                "segments": [
+                    {
+                        "height": 3.3,
+                        "lower-diameter": 26,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 19,
+                        "lower-diameter": 34,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 15,
+                        "lower-diameter": 25,
+                        "upper-diameter": 25
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 10,
+                "length-offset": 10,
+                "live": false,
+                "manual-tool-change": false,
+                "number": 10,
+                "turret": 0
+            },
+            "product-id": "5430-.500-120",
+            "product-link": "https://www.maritool.com/product_info.php?products_id=14342",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.012,
+                        "f_n_retract": 0.012,
+                        "f_z": 0.006000441968357,
+                        "guid": "bb7674d9-ed75-449d-a054-51f4d3189494",
+                        "n": 2291.831180523293,
+                        "name": "Aluminium Preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": true,
+                        "v_c": 300,
+                        "v_f": 27.504,
+                        "v_f_leadIn": 27.504,
+                        "v_f_leadOut": 27.504,
+                        "v_f_ramp": 13.123359580052496
+                    }
+                ]
+            },
+            "type": "spot drill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "description": "TTS-JT2 Holder with 3/8\" Drill Chuck",
+            "guid": "b1b13467-75db-4381-97e7-1cec4a098748",
+            "product-id": "30244",
+            "product-link": "https://tormach.com/drill-chuck-jt2-30244.html",
+            "segments": [
+                {
+                    "height": 4.25,
+                    "lower-diameter": 23,
+                    "upper-diameter": 30.50000000000001
+                },
+                {
+                    "height": 13.7,
+                    "lower-diameter": 30.600000000000005,
+                    "upper-diameter": 30.600000000000005
+                },
+                {
+                    "height": 1.14,
+                    "lower-diameter": 30.50000000000001,
+                    "upper-diameter": 43
+                },
+                {
+                    "height": 30.50000000000001,
+                    "lower-diameter": 43,
+                    "upper-diameter": 43
+                },
+                {
+                    "height": 5,
+                    "lower-diameter": 35,
+                    "upper-diameter": 27
+                },
+                {
+                    "height": 2,
+                    "lower-diameter": 18,
+                    "upper-diameter": 18
+                },
+                {
+                    "height": 6.7,
+                    "lower-diameter": 38.1,
+                    "upper-diameter": 38.1
+                },
+                {
+                    "height": 2.4,
+                    "lower-diameter": 29.50000000000001,
+                    "upper-diameter": 29.50000000000001
+                },
+                {
+                    "height": 6.830000000000005,
+                    "lower-diameter": 38.1,
+                    "upper-diameter": 38.1
+                }
+            ],
+            "type": "holder",
+            "unit": "millimeters",
+            "vendor": "Tormach"
+        },
+        {
+            "BMC": "hss",
+            "description": "Jobber Drill H - Screw Clearence 1/4\" ",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.266,
+                "HAND": true,
+                "LB": 3.08,
+                "LCF": 2.875,
+                "NOF": 2,
+                "OAL": 4.125,
+                "SFDM": 0.266,
+                "SIG": 118,
+                "shoulder-length": 2.875
+            },
+            "guid": "a1619297-a4a0-4943-92d7-621f7b0a71f5",
+            "holder": {
+                "description": "TTS-JT2 Holder with 3/8\" Drill Chuck",
+                "guid": "b1b13467-75db-4381-97e7-1cec4a098748",
+                "product-id": "30244",
+                "product-link": "https://tormach.com/drill-chuck-jt2-30244.html",
+                "segments": [
+                    {
+                        "height": 4.25,
+                        "lower-diameter": 23,
+                        "upper-diameter": 30.50000000000001
+                    },
+                    {
+                        "height": 13.7,
+                        "lower-diameter": 30.600000000000005,
+                        "upper-diameter": 30.600000000000005
+                    },
+                    {
+                        "height": 1.14,
+                        "lower-diameter": 30.50000000000001,
+                        "upper-diameter": 43
+                    },
+                    {
+                        "height": 30.50000000000001,
+                        "lower-diameter": 43,
+                        "upper-diameter": 43
+                    },
+                    {
+                        "height": 5,
+                        "lower-diameter": 35,
+                        "upper-diameter": 27
+                    },
+                    {
+                        "height": 2,
+                        "lower-diameter": 18,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 11,
+                "length-offset": 11,
+                "live": false,
+                "manual-tool-change": false,
+                "number": 11,
+                "turret": 0
+            },
+            "product-id": "Drill-Set-18003",
+            "product-link": "https://www.maritool.com/p879/Master-set-Jobber-Black-Treated-115-pcs/product_info.html",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.005,
+                        "f_n_retract": 0.005,
+                        "guid": "2d102558-c736-40b3-b9bf-49939204a682",
+                        "n": 3589.961122373579,
+                        "name": "Aluminium Preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": true,
+                        "v_c": 250
+                    }
+                ]
+            },
+            "type": "drill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "BMC": "hss",
+            "description": "Jobber Drill # 7",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.201,
+                "HAND": true,
+                "LB": 2.773899999999999,
+                "LCF": 2.4375,
+                "NOF": 2,
+                "OAL": 3.625,
+                "SFDM": 0.201,
+                "SIG": 118,
+                "shoulder-length": 2.4375
+            },
+            "guid": "e54214cb-54ae-4e4c-a0be-ef0c4e08f3f6",
+            "holder": {
+                "description": "TTS-JT1 Holder with 1/4\"\" Drill Chuck",
+                "guid": "ae642cbb-2e8b-4a0e-8dc2-99c82bf6ea3c",
+                "product-id": "30102",
+                "product-link": "https://tormach.com/drill-chuck-jt1-30102.html",
+                "segments": [
+                    {
+                        "height": 5,
+                        "lower-diameter": 17.5,
+                        "upper-diameter": 22
+                    },
+                    {
+                        "height": 10,
+                        "lower-diameter": 22,
+                        "upper-diameter": 22
+                    },
+                    {
+                        "height": 1.5,
+                        "lower-diameter": 22,
+                        "upper-diameter": 31
+                    },
+                    {
+                        "height": 23,
+                        "lower-diameter": 31,
+                        "upper-diameter": 31
+                    },
+                    {
+                        "height": 3.5,
+                        "lower-diameter": 31,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 2,
+                        "lower-diameter": 18,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 12,
+                "length-offset": 12,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 12,
+                "turret": 0
+            },
+            "product-id": "Drill-Set-18003",
+            "product-link": "https://www.maritool.com/Cutting-Tools-Drills-HSS-/-Cobalt-Drill-Sets/c78_140_361_141/p879/Master-set-Jobber-Black-Treated-115-pcs/product_info.html",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.008,
+                        "guid": "1a9bbe30-a68e-415e-a35b-26c860864295",
+                        "n": 5000,
+                        "name": "Default preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": false,
+                        "v_c": 263.1083847381452,
+                        "v_f_plunge": 40,
+                        "v_f_retract": 40
+                    }
+                ]
+            },
+            "type": "drill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "description": "TTS-JT6 Holder with 1/2\" Drill Chuck (3.471\" from TTS Holder)",
+            "guid": "a52a71cd-c786-4476-b1cd-4d7e8fff3bbc",
+            "product-id": "30104",
+            "product-link": "https://tormach.com/drill-chuck-jt6-30104.html",
+            "segments": [
+                {
+                    "height": 5,
+                    "lower-diameter": 31,
+                    "upper-diameter": 37.75
+                },
+                {
+                    "height": 19.5,
+                    "lower-diameter": 37.75,
+                    "upper-diameter": 37.75
+                },
+                {
+                    "height": 2,
+                    "lower-diameter": 37.75,
+                    "upper-diameter": 52.90000000000001
+                },
+                {
+                    "height": 35,
+                    "lower-diameter": 52.90000000000001,
+                    "upper-diameter": 52.90000000000001
+                },
+                {
+                    "height": 5,
+                    "lower-diameter": 43.35,
+                    "upper-diameter": 31.500000000000018
+                },
+                {
+                    "height": 2,
+                    "lower-diameter": 17,
+                    "upper-diameter": 17
+                },
+                {
+                    "height": 6.7,
+                    "lower-diameter": 38.1,
+                    "upper-diameter": 38.1
+                },
+                {
+                    "height": 2.4,
+                    "lower-diameter": 29.50000000000001,
+                    "upper-diameter": 29.50000000000001
+                },
+                {
+                    "height": 6.830000000000005,
+                    "lower-diameter": 38.1,
+                    "upper-diameter": 38.1
+                }
+            ],
+            "type": "holder",
+            "unit": "millimeters",
+            "vendor": "Tormach"
+        },
+        {
+            "BMC": "hss",
+            "description": "Jobber Drill 1/2\" ",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.5,
+                "HAND": true,
+                "LB": 4.653,
+                "LCF": 4.5,
+                "NOF": 3,
+                "OAL": 5.999999999999999,
+                "SFDM": 0.5,
+                "SIG": 118,
+                "shoulder-length": 4.5
+            },
+            "guid": "78720670-49ee-4ea8-b128-02dc9fec84b0",
+            "holder": {
+                "description": "TTS-JT6 Holder with 1/2\" Drill Chuck (3.471\" from TTS Holder)",
+                "guid": "a52a71cd-c786-4476-b1cd-4d7e8fff3bbc",
+                "product-id": "30104",
+                "product-link": "https://tormach.com/drill-chuck-jt6-30104.html",
+                "segments": [
+                    {
+                        "height": 5,
+                        "lower-diameter": 31,
+                        "upper-diameter": 37.75
+                    },
+                    {
+                        "height": 19.5,
+                        "lower-diameter": 37.75,
+                        "upper-diameter": 37.75
+                    },
+                    {
+                        "height": 2,
+                        "lower-diameter": 37.75,
+                        "upper-diameter": 52.90000000000001
+                    },
+                    {
+                        "height": 35,
+                        "lower-diameter": 52.90000000000001,
+                        "upper-diameter": 52.90000000000001
+                    },
+                    {
+                        "height": 5,
+                        "lower-diameter": 43.35,
+                        "upper-diameter": 31.500000000000018
+                    },
+                    {
+                        "height": 2,
+                        "lower-diameter": 17,
+                        "upper-diameter": 17
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 13,
+                "length-offset": 13,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 13,
+                "turret": 0
+            },
+            "product-id": "Drill-Set-18003",
+            "product-link": "https://www.maritool.com/Cutting-Tools-Drills-HSS-/-Cobalt-Drill-Sets/c78_140_361_141/p879/Master-set-Jobber-Black-Treated-115-pcs/product_info.html",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.008,
+                        "guid": "6f2bcd8d-4450-4ab9-948f-4f18f412b0f2",
+                        "n": 5000,
+                        "name": "Default preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": false,
+                        "v_c": 654.4984694978734,
+                        "v_f_plunge": 40,
+                        "v_f_retract": 40
+                    }
+                ]
+            },
+            "type": "drill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "BMC": "hss",
+            "description": "Jobber Drill 7/16\"",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.4375,
+                "HAND": true,
+                "LB": 4.300000000000002,
+                "LCF": 4.0625,
+                "NOF": 3,
+                "OAL": 5.5,
+                "SFDM": 0.4375,
+                "SIG": 118,
+                "shoulder-length": 4.0625
+            },
+            "guid": "9b3914ab-e1ae-4661-a446-bd26dd827cd1",
+            "holder": {
+                "description": "TTS-JT6 Holder with 1/2\" Drill Chuck (3.471\" from TTS Holder)",
+                "guid": "a52a71cd-c786-4476-b1cd-4d7e8fff3bbc",
+                "product-id": "30104",
+                "product-link": "https://tormach.com/drill-chuck-jt6-30104.html",
+                "segments": [
+                    {
+                        "height": 16,
+                        "lower-diameter": 11.500000000000004,
+                        "upper-diameter": 17.75
+                    },
+                    {
+                        "height": 5,
+                        "lower-diameter": 31,
+                        "upper-diameter": 37.75
+                    },
+                    {
+                        "height": 19.5,
+                        "lower-diameter": 37.75,
+                        "upper-diameter": 37.75
+                    },
+                    {
+                        "height": 2,
+                        "lower-diameter": 37.75,
+                        "upper-diameter": 52.90000000000001
+                    },
+                    {
+                        "height": 35,
+                        "lower-diameter": 52.90000000000001,
+                        "upper-diameter": 52.90000000000001
+                    },
+                    {
+                        "height": 5,
+                        "lower-diameter": 43.35,
+                        "upper-diameter": 31.50000000000001
+                    },
+                    {
+                        "height": 2,
+                        "lower-diameter": 17,
+                        "upper-diameter": 17
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 14,
+                "length-offset": 14,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 14,
+                "turret": 0
+            },
+            "product-id": "Drill-Set-18003",
+            "product-link": "https://www.maritool.com/Cutting-Tools-Drills-HSS-/-Cobalt-Drill-Sets/c78_140_361_141/p879/Master-set-Jobber-Black-Treated-115-pcs/product_info.html",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.008,
+                        "guid": "1594ed4f-f788-4f15-878f-72189f855218",
+                        "n": 5000,
+                        "name": "Default preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": false,
+                        "v_c": 572.6861608106393,
+                        "v_f_plunge": 40,
+                        "v_f_retract": 40
+                    }
+                ]
+            },
+            "type": "drill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "BMC": "carbide",
+            "description": "1/2 dia 3 Flute High Helix Carbide Rougher X 1.25 LOC ZrN Coated",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.5,
+                "HAND": true,
+                "LB": 1.616,
+                "LCF": 1.25,
+                "NOF": 3,
+                "OAL": 3,
+                "SFDM": 0.5,
+                "shoulder-length": 1.25
+            },
+            "guid": "304a71a6-e556-41f7-84cd-146953ab0cc2",
+            "holder": {
+                "description": "TTS-1/2\" Set Screw Holder",
+                "guid": "155485ed-f9ad-4059-abc4-5dba32e463bb",
+                "product-id": "31821",
+                "product-link": "https://tormach.com/tts-set-screw-holder-31821.html",
+                "segments": [
+                    {
+                        "height": 10.72,
+                        "lower-diameter": 22,
+                        "upper-diameter": 32
+                    },
+                    {
+                        "height": 19,
+                        "lower-diameter": 32,
+                        "upper-diameter": 32
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 15,
+                "length-offset": 15,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 15,
+                "turret": 0
+            },
+            "product-id": "1011-.500-1.25-ZrN",
+            "product-link": "https://www.maritool.com/product_info.php?products_id=13492",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.003878509448876,
+                        "f_z": 0.005,
+                        "guid": "e300faa6-bad4-4a4f-be87-cb3106833f8f",
+                        "n": 3437.7467707849405,
+                        "n_ramp": 3437.7467707849405,
+                        "name": "Aluminium Preset",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 450,
+                        "v_f": 51.56620156177409,
+                        "v_f_leadIn": 51.56620156177409,
+                        "v_f_leadOut": 51.56620156177409,
+                        "v_f_plunge": 13.333333333333336,
+                        "v_f_ramp": 13.333333333333336
+                    },
+                    {
+                        "f_n": 0.006981317007977,
+                        "f_z": 0.005,
+                        "guid": "0a907f79-414d-48b6-871f-06588d44e08d",
+                        "n": 1909.859317102744,
+                        "n_ramp": 1909.859317102744,
+                        "name": "Aluminium Consv Preset",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 250.00000000000003,
+                        "v_f": 28.647889756541165,
+                        "v_f_leadIn": 28.647889756541165,
+                        "v_f_leadOut": 28.647889756541165,
+                        "v_f_plunge": 13.333333333333336,
+                        "v_f_ramp": 13.333333333333336
+                    }
+                ]
+            },
+            "type": "flat end mill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "BMC": "carbide",
+            "description": "Helical Chamfer Mill .250 Dia X 90 Degree 4 Flute DE Uncoated",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.25,
+                "HAND": true,
+                "LB": 0.9805,
+                "LCF": 0.2,
+                "NOF": 4,
+                "OAL": 2,
+                "SFDM": 0.25,
+                "TA": 45,
+                "shoulder-length": 0.2,
+                "tip-diameter": 0
+            },
+            "guid": "6a2cebfb-ec29-467f-a96c-9a2a398daa46",
+            "holder": {
+                "description": "TTS-ER20 Holder",
+                "guid": "b3fbaa4f-a1de-4b17-8415-9d20a31dd1db",
+                "last_modified": 1669994267727,
+                "product-id": "31829",
+                "product-link": "",
+                "reference_guid": "<NEW TOOL GUID>",
+                "segments": [
+                    {
+                        "height": 3.3,
+                        "lower-diameter": 26,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 19,
+                        "lower-diameter": 34,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 15,
+                        "lower-diameter": 25,
+                        "upper-diameter": 25
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 16,
+                "length-offset": 16,
+                "live": false,
+                "manual-tool-change": false,
+                "number": 16,
+                "turret": 0
+            },
+            "product-id": "3500-.250-90DEG-H-U",
+            "product-link": "https://www.maritool.com/Cutting-Tools-End-Mills-Chamfer-Mills-Helical-Chamfer-Mills/c78_79_154_512/p19346/Helical-Chamfer-Mill-.250-Dia-X-90-Degree-4-Flute-DE-Uncoated/product_info.html",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.003435687503926,
+                        "f_z": 0.0015,
+                        "guid": "2b04eb87-92fd-4089-8b4e-2a554b5fea23",
+                        "n": 3819.718634205488,
+                        "n_ramp": 3819.718634205488,
+                        "name": "Default preset",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 250.00000000000003,
+                        "v_f": 22.91831180523293,
+                        "v_f_leadIn": 22.91831180523293,
+                        "v_f_leadOut": 22.91831180523293,
+                        "v_f_plunge": 13.123359580052496,
+                        "v_f_ramp": 13.123359580052496
+                    }
+                ]
+            },
+            "type": "chamfer mill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "BMC": "hss",
+            "description": "#29 Maritool Jobber (8-32 Tap Drill)",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.136,
+                "HAND": true,
+                "LB": 1.8,
+                "LCF": 1.75,
+                "NOF": 2,
+                "OAL": 2.875,
+                "SFDM": 0.136,
+                "SIG": 118,
+                "shoulder-length": 1.75
+            },
+            "guid": "97c9f15a-9dcd-4cff-91fe-ef9074718ad8",
+            "holder": {
+                "description": "TTS-JT1 Holder with 1/4\"\" Drill Chuck",
+                "guid": "ae642cbb-2e8b-4a0e-8dc2-99c82bf6ea3c",
+                "product-id": "30102",
+                "product-link": "https://tormach.com/drill-chuck-jt1-30102.html",
+                "segments": [
+                    {
+                        "height": 5,
+                        "lower-diameter": 17.5,
+                        "upper-diameter": 22
+                    },
+                    {
+                        "height": 10,
+                        "lower-diameter": 22,
+                        "upper-diameter": 22
+                    },
+                    {
+                        "height": 1.5,
+                        "lower-diameter": 22,
+                        "upper-diameter": 31
+                    },
+                    {
+                        "height": 23,
+                        "lower-diameter": 31,
+                        "upper-diameter": 31
+                    },
+                    {
+                        "height": 3.5,
+                        "lower-diameter": 31,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 2,
+                        "lower-diameter": 18,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 17,
+                "length-offset": 17,
+                "live": false,
+                "manual-tool-change": false,
+                "number": 17,
+                "turret": 0
+            },
+            "product-id": "",
+            "product-link": "",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.008,
+                        "guid": "1636f7e7-fb82-4c48-8bc1-63bffd71f601",
+                        "n": 5000,
+                        "name": "Default preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": false,
+                        "v_c": 178.02358370342162,
+                        "v_f_plunge": 40,
+                        "v_f_retract": 40
+                    },
+                    {
+                        "f_n": 0.008,
+                        "guid": "698eee7c-5207-44c0-98ba-d3dde2c416d3",
+                        "n": 5000,
+                        "name": "Default preset 1",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": false,
+                        "v_c": 178.02358370342162,
+                        "v_f_plunge": 40,
+                        "v_f_retract": 40
+                    }
+                ]
+            },
+            "type": "drill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "BMC": "hss",
+            "description": "Jobber Drill K ",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.281,
+                "HAND": true,
+                "LB": 3,
+                "LCF": 2.9375,
+                "NOF": 2,
+                "OAL": 4.25,
+                "SFDM": 0.281,
+                "SIG": 118,
+                "shoulder-length": 2.9375
+            },
+            "guid": "1b79bc6f-643f-4055-88f8-9f7668913422",
+            "holder": {
+                "description": "TTS-JT2 Holder with 3/8\" Drill Chuck",
+                "guid": "b1b13467-75db-4381-97e7-1cec4a098748",
+                "product-id": "30244",
+                "product-link": "https://tormach.com/drill-chuck-jt2-30244.html",
+                "segments": [
+                    {
+                        "height": 4.25,
+                        "lower-diameter": 23,
+                        "upper-diameter": 30.50000000000001
+                    },
+                    {
+                        "height": 13.7,
+                        "lower-diameter": 30.600000000000005,
+                        "upper-diameter": 30.600000000000005
+                    },
+                    {
+                        "height": 1.14,
+                        "lower-diameter": 30.50000000000001,
+                        "upper-diameter": 43
+                    },
+                    {
+                        "height": 30.50000000000001,
+                        "lower-diameter": 43,
+                        "upper-diameter": 43
+                    },
+                    {
+                        "height": 5,
+                        "lower-diameter": 35,
+                        "upper-diameter": 27
+                    },
+                    {
+                        "height": 2,
+                        "lower-diameter": 18,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "last_modified": 1675293479474,
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 18,
+                "length-offset": 18,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 18,
+                "turret": 0
+            },
+            "product-id": "",
+            "product-link": "",
+            "reference_guid": "<NEW TOOL GUID>",
+            "start-values": {
+                "presets": [
+                    {
+                        "guid": "70a6a072-84c9-4e99-b856-453f23605044",
+                        "n": 5000,
+                        "name": "Default preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": false,
+                        "v_c": 367.82813985780496,
+                        "v_f_plunge": 40,
+                        "v_f_retract": 40
+                    }
+                ]
+            },
+            "type": "drill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "BMC": "hss",
+            "description": "Jobber Drill (F) ",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.257,
+                "HAND": true,
+                "LB": 3,
+                "LCF": 2.875,
+                "NOF": 2,
+                "OAL": 4.125,
+                "SFDM": 0.257,
+                "SIG": 118,
+                "shoulder-length": 2.875
+            },
+            "guid": "fd9595e0-2546-481a-9797-3c9bdc7626cc",
+            "holder": {
+                "description": "TTS-JT2 Holder with 3/8\" Drill Chuck",
+                "guid": "b1b13467-75db-4381-97e7-1cec4a098748",
+                "product-id": "30244",
+                "product-link": "https://tormach.com/drill-chuck-jt2-30244.html",
+                "segments": [
+                    {
+                        "height": 4.25,
+                        "lower-diameter": 23,
+                        "upper-diameter": 30.50000000000001
+                    },
+                    {
+                        "height": 13.7,
+                        "lower-diameter": 30.600000000000005,
+                        "upper-diameter": 30.600000000000005
+                    },
+                    {
+                        "height": 1.14,
+                        "lower-diameter": 30.50000000000001,
+                        "upper-diameter": 43
+                    },
+                    {
+                        "height": 30.50000000000001,
+                        "lower-diameter": 43,
+                        "upper-diameter": 43
+                    },
+                    {
+                        "height": 5,
+                        "lower-diameter": 35,
+                        "upper-diameter": 27
+                    },
+                    {
+                        "height": 2,
+                        "lower-diameter": 18,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 19,
+                "length-offset": 19,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 19,
+                "turret": 0
+            },
+            "product-id": "",
+            "product-link": "",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.005,
+                        "f_n_retract": 0.005,
+                        "guid": "0db57853-641b-4483-8933-3ca99e301511",
+                        "n": 3600,
+                        "name": "Aluminium Preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": true,
+                        "v_c": 242.21679359177307
+                    }
+                ]
+            },
+            "type": "drill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "BMC": "carbide",
+            "description": "1/2 3 Flute Carbide End Mill SE 38 Deg Helix 2.00 LOC w/Flat",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.5,
+                "HAND": true,
+                "LB": 2.1,
+                "LCF": 2,
+                "NOF": 3,
+                "OAL": 4,
+                "SFDM": 0.5,
+                "shoulder-length": 2
+            },
+            "guid": "5c00751b-86c6-4472-9575-72f25e2475a2",
+            "holder": {
+                "description": "TTS-1/2\" Set Screw Holder",
+                "guid": "155485ed-f9ad-4059-abc4-5dba32e463bb",
+                "product-id": "31821",
+                "product-link": "https://tormach.com/tts-set-screw-holder-31821.html",
+                "segments": [
+                    {
+                        "height": 10.72,
+                        "lower-diameter": 22,
+                        "upper-diameter": 32
+                    },
+                    {
+                        "height": 19,
+                        "lower-diameter": 32,
+                        "upper-diameter": 32
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "last_modified": 1675909529478,
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 20,
+                "length-offset": 20,
+                "live": false,
+                "manual-tool-change": false,
+                "number": 20,
+                "turret": 0
+            },
+            "product-id": "1021-.500-2.00",
+            "product-link": "https://www.maritool.com/product_info.php?products_id=2231",
+            "reference_guid": "<NEW TOOL GUID>",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.004363323129986,
+                        "f_z": 0.0055,
+                        "guid": "5fb78d95-f7fd-41a3-b211-71cc91145cb8",
+                        "n": 3055.7749073643913,
+                        "n_ramp": 3055.7749073643913,
+                        "name": "Aluminium Preset",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 400,
+                        "v_f": 50.42028597151244,
+                        "v_f_leadIn": 50.42028597151244,
+                        "v_f_leadOut": 50.42028597151244,
+                        "v_f_plunge": 13.333333333333336,
+                        "v_f_ramp": 13.333333333333336
+                    }
+                ]
+            },
+            "type": "flat end mill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "BMC": "carbide",
+            "description": "1/2 dia 3 Flute High Helix Carbide Rougher X 2.0 LOC",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.5,
+                "HAND": true,
+                "LB": 2.1,
+                "LCF": 2,
+                "NOF": 3,
+                "OAL": 4,
+                "SFDM": 0.5,
+                "shoulder-length": 2
+            },
+            "guid": "c08962ac-ae57-465d-b390-9ceaffa75bc2",
+            "holder": {
+                "description": "TTS-1/2\" Set Screw Holder",
+                "guid": "155485ed-f9ad-4059-abc4-5dba32e463bb",
+                "product-id": "31821",
+                "product-link": "https://tormach.com/tts-set-screw-holder-31821.html",
+                "segments": [
+                    {
+                        "height": 10.72,
+                        "lower-diameter": 22,
+                        "upper-diameter": 32
+                    },
+                    {
+                        "height": 19,
+                        "lower-diameter": 32,
+                        "upper-diameter": 32
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 21,
+                "length-offset": 21,
+                "live": false,
+                "manual-tool-change": false,
+                "number": 21,
+                "turret": 0
+            },
+            "product-id": "1011-.500-2.0",
+            "product-link": "https://www.maritool.com/product_info.php?products_id=18029",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.003878509448876,
+                        "f_z": 0.005,
+                        "guid": "9e5b9a23-fae0-47a0-b19e-c0b7d8dadad2",
+                        "n": 3437.7467707849405,
+                        "n_ramp": 3437.7467707849405,
+                        "name": "Aluminium Preset",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 450.0000000000001,
+                        "v_f": 51.56620156177409,
+                        "v_f_leadIn": 51.56620156177409,
+                        "v_f_leadOut": 51.56620156177409,
+                        "v_f_plunge": 13.333333333333336,
+                        "v_f_ramp": 13.333333333333336
+                    }
+                ]
+            },
+            "type": "flat end mill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "BMC": "hss",
+            "description": "Jobber Drill 7/32\"",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.21875,
+                "HAND": true,
+                "LB": 2.6,
+                "LCF": 2.5,
+                "NOF": 2,
+                "OAL": 3.75,
+                "SFDM": 0.21875,
+                "SIG": 118,
+                "shoulder-length": 2.5
+            },
+            "guid": "761857bf-df64-477d-951d-110ec5c0e2a0",
+            "holder": {
+                "description": "TTS-JT1 Holder with 1/4\"\" Drill Chuck",
+                "guid": "ae642cbb-2e8b-4a0e-8dc2-99c82bf6ea3c",
+                "product-id": "30102",
+                "product-link": "https://tormach.com/drill-chuck-jt1-30102.html",
+                "segments": [
+                    {
+                        "height": 5,
+                        "lower-diameter": 17.5,
+                        "upper-diameter": 22
+                    },
+                    {
+                        "height": 10,
+                        "lower-diameter": 22,
+                        "upper-diameter": 22
+                    },
+                    {
+                        "height": 1.5,
+                        "lower-diameter": 22,
+                        "upper-diameter": 31
+                    },
+                    {
+                        "height": 23,
+                        "lower-diameter": 31,
+                        "upper-diameter": 31
+                    },
+                    {
+                        "height": 3.5,
+                        "lower-diameter": 31,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 2,
+                        "lower-diameter": 18,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "last_modified": 1676323539451,
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 22,
+                "length-offset": 22,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 22,
+                "turret": 0
+            },
+            "product-id": "",
+            "product-link": "",
+            "reference_guid": "<NEW TOOL GUID>",
+            "start-values": {
+                "presets": [
+                    {
+                        "guid": "c21cd144-8f46-4bfb-8606-4e8bf65959ad",
+                        "n": 5000,
+                        "name": "Default preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": false,
+                        "v_c": 286.34308040531965,
+                        "v_f_plunge": 40,
+                        "v_f_retract": 40
+                    }
+                ]
+            },
+            "type": "drill",
+            "unit": "inches",
+            "vendor": "Maritool"
+        },
+        {
+            "BMC": "ti coated",
+            "description": "3.3mm TiN-Coated High-Speed Steel Drill Bit",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.12992125984252,
+                "HAND": true,
+                "LB": 1.299212598425197,
+                "LCF": 1.220472440944882,
+                "NOF": 2,
+                "OAL": 2.559055118110237,
+                "SFDM": 0.12992125984252,
+                "SIG": 118,
+                "shoulder-length": 1.220472440944882
+            },
+            "guid": "02ca3e5e-54cc-4d57-b96f-f64c04ca3de8",
+            "holder": {
+                "description": "TTS-JT1 Holder with 1/4\"\" Drill Chuck",
+                "guid": "ae642cbb-2e8b-4a0e-8dc2-99c82bf6ea3c",
+                "product-id": "30102",
+                "product-link": "https://tormach.com/drill-chuck-jt1-30102.html",
+                "segments": [
+                    {
+                        "height": 5,
+                        "lower-diameter": 17.5,
+                        "upper-diameter": 22
+                    },
+                    {
+                        "height": 10,
+                        "lower-diameter": 22,
+                        "upper-diameter": 22
+                    },
+                    {
+                        "height": 1.5,
+                        "lower-diameter": 22,
+                        "upper-diameter": 31
+                    },
+                    {
+                        "height": 23,
+                        "lower-diameter": 31,
+                        "upper-diameter": 31
+                    },
+                    {
+                        "height": 3.5,
+                        "lower-diameter": 31,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 2,
+                        "lower-diameter": 18,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 23,
+                "length-offset": 23,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 23,
+                "turret": 0
+            },
+            "product-id": "8950A13",
+            "product-link": "https://www.mcmaster.com/8950A13/",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.003,
+                        "f_n_retract": 0.003,
+                        "guid": "ed532f6f-2e83-40bc-8b40-b3dbb77b8096",
+                        "n": 4411.994828431397,
+                        "name": "Aluminium preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": true,
+                        "v_c": 150.0665314443293
+                    }
+                ]
+            },
+            "type": "drill",
+            "unit": "inches",
+            "vendor": "McMaster-Carr"
+        },
+        {
+            "BMC": "carbide",
+            "description": "1/4,  4 flute SQR AlCrN carbide finisher w/ flat",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.25,
+                "HAND": true,
+                "LB": 0.56,
+                "LCF": 0.5,
+                "NOF": 4,
+                "OAL": 2.5,
+                "SFDM": 0.25,
+                "shoulder-length": 0.5
+            },
+            "guid": "81499952-975a-45f6-8317-38a61f364907",
+            "holder": {
+                "description": "TTS-ER20 Holder",
+                "guid": "b3fbaa4f-a1de-4b17-8415-9d20a31dd1db",
+                "last_modified": 1669994267727,
+                "product-id": "31829",
+                "product-link": "",
+                "reference_guid": "<NEW TOOL GUID>",
+                "segments": [
+                    {
+                        "height": 3.3,
+                        "lower-diameter": 26,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 19,
+                        "lower-diameter": 34,
+                        "upper-diameter": 34
+                    },
+                    {
+                        "height": 15,
+                        "lower-diameter": 25,
+                        "upper-diameter": 25
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 24,
+                "length-offset": 24,
+                "live": false,
+                "manual-tool-change": false,
+                "number": 24,
+                "turret": 0
+            },
+            "product-id": "1001-.250-.500-AlCrN-F",
+            "product-link": "https://www.maritool.com/product_info.php?products_id=18480",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.002908882086657,
+                        "f_z": 0.001,
+                        "guid": "0dffb127-3ba3-4661-8bce-a21eff1725f5",
+                        "n": 4583.662361046586,
+                        "n_ramp": 4583.662361046586,
+                        "name": "Titanium Preset",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 300,
+                        "v_f": 18.33464944418635,
+                        "v_f_leadIn": 18.33464944418635,
+                        "v_f_leadOut": 18.33464944418635,
+                        "v_f_plunge": 13.333333333333336,
+                        "v_f_ramp": 13.333333333333336
+                    },
+                    {
+                        "f_n": 0.014544410433286,
+                        "f_z": 6e-04,
+                        "guid": "3df00e65-3af2-40e5-9fe2-0cc5d7284bf7",
+                        "n": 916.7324722093172,
+                        "n_ramp": 916.7324722093172,
+                        "name": "Inconel Preset",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 60,
+                        "v_f": 2.200157933302361,
+                        "v_f_leadIn": 2.200157933302361,
+                        "v_f_leadOut": 2.200157933302361,
+                        "v_f_plunge": 13.333333333333336,
+                        "v_f_ramp": 13.333333333333336
+                    },
+                    {
+                        "f_n": 0.002770363892054,
+                        "f_z": 0.0014,
+                        "guid": "747bfd00-f1ed-4fa7-90ff-7ff784fbbfd1",
+                        "n": 4812.845479098915,
+                        "n_ramp": 4812.845479098915,
+                        "name": "Stainless Steel 300",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 314.99999999999994,
+                        "v_f": 26.95193468295393,
+                        "v_f_leadIn": 26.95193468295393,
+                        "v_f_leadOut": 26.95193468295393,
+                        "v_f_plunge": 13.333333333333336,
+                        "v_f_ramp": 13.333333333333336
+                    },
+                    {
+                        "f_n": 0.004363323129986,
+                        "f_z": 0.0013,
+                        "guid": "b9c69d3b-0597-4d46-8630-96c7bd711023",
+                        "n": 3055.774907364392,
+                        "n_ramp": 3055.774907364392,
+                        "name": "Stainless Steel 400",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 200.00000000000009,
+                        "v_f": 15.890029518294831,
+                        "v_f_leadIn": 15.890029518294831,
+                        "v_f_leadOut": 15.890029518294831,
+                        "v_f_plunge": 13.333333333333336,
+                        "v_f_ramp": 13.333333333333336
+                    }
+                ]
+            },
+            "type": "flat end mill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "BMC": "hss",
+            "description": "#36 Jobber Drill (6-32 Tap Drill)",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.1065,
+                "HAND": true,
+                "LB": 1.5,
+                "LCF": 1.4375,
+                "NOF": 2,
+                "OAL": 2.5,
+                "SFDM": 0.1065,
+                "SIG": 118,
+                "shoulder-length": 1.4375
+            },
+            "guid": "8d9bcc79-9aff-4e14-9f5f-8cdbc1561902",
+            "holder": {
+                "description": "TTS-JT1 Holder with 1/4\"\" Drill Chuck",
+                "guid": "ae642cbb-2e8b-4a0e-8dc2-99c82bf6ea3c",
+                "product-id": "30102",
+                "product-link": "https://tormach.com/drill-chuck-jt1-30102.html",
+                "segments": [
+                    {
+                        "height": 5,
+                        "lower-diameter": 17.5,
+                        "upper-diameter": 22
+                    },
+                    {
+                        "height": 10,
+                        "lower-diameter": 22,
+                        "upper-diameter": 22
+                    },
+                    {
+                        "height": 1.5,
+                        "lower-diameter": 22,
+                        "upper-diameter": 31
+                    },
+                    {
+                        "height": 23,
+                        "lower-diameter": 31,
+                        "upper-diameter": 31
+                    },
+                    {
+                        "height": 3.5,
+                        "lower-diameter": 31,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 2,
+                        "lower-diameter": 18,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 25,
+                "length-offset": 25,
+                "live": false,
+                "manual-tool-change": false,
+                "number": 25,
+                "turret": 0
+            },
+            "product-id": "",
+            "product-link": "",
+            "start-values": {
+                "presets": [
+                    {
+                        "guid": "c33c7f14-6e10-4ee3-8c5d-4cd1a8c48356",
+                        "n": 5000,
+                        "name": "Default preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": false,
+                        "v_c": 139.40817400304704,
+                        "v_f_plunge": 40,
+                        "v_f_retract": 40
+                    },
+                    {
+                        "f_n": 0.001,
+                        "f_n_retract": 0.001,
+                        "guid": "c62fc5b8-b8e8-43aa-b09e-3afe55397a8a",
+                        "n": 4411.994828431397,
+                        "name": "Aluminium preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": true,
+                        "v_c": 123.0136285485016
+                    },
+                    {
+                        "guid": "ce8a1a4c-f94b-411c-bda5-7fcc5a713542",
+                        "n": 5000,
+                        "name": "Default preset 1",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": false,
+                        "v_c": 139.40817400304704,
+                        "v_f_plunge": 40,
+                        "v_f_retract": 40
+                    }
+                ]
+            },
+            "type": "drill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "BMC": "hss",
+            "description": "#25 Jobber Drill (#6 screw clearence)",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.1495,
+                "HAND": true,
+                "LB": 1.9,
+                "LCF": 1.875,
+                "NOF": 2,
+                "OAL": 3,
+                "SFDM": 0.1495,
+                "SIG": 118,
+                "shoulder-length": 1.875
+            },
+            "guid": "8aae7f3d-b202-46e1-a6b0-12e55cf1a859",
+            "holder": {
+                "description": "TTS-JT1 Holder with 1/4\"\" Drill Chuck",
+                "guid": "ae642cbb-2e8b-4a0e-8dc2-99c82bf6ea3c",
+                "product-id": "30102",
+                "product-link": "https://tormach.com/drill-chuck-jt1-30102.html",
+                "segments": [
+                    {
+                        "height": 5,
+                        "lower-diameter": 17.5,
+                        "upper-diameter": 22
+                    },
+                    {
+                        "height": 10,
+                        "lower-diameter": 22,
+                        "upper-diameter": 22
+                    },
+                    {
+                        "height": 1.5,
+                        "lower-diameter": 22,
+                        "upper-diameter": 31
+                    },
+                    {
+                        "height": 23,
+                        "lower-diameter": 31,
+                        "upper-diameter": 31
+                    },
+                    {
+                        "height": 3.5,
+                        "lower-diameter": 31,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 2,
+                        "lower-diameter": 18,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 26,
+                "length-offset": 26,
+                "live": false,
+                "manual-tool-change": false,
+                "number": 26,
+                "turret": 0
+            },
+            "product-id": "",
+            "product-link": "",
+            "start-values": {
+                "presets": [
+                    {
+                        "guid": "b505087f-dd53-4392-a62a-4f638223b8a3",
+                        "n": 5000,
+                        "name": "Default preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": false,
+                        "v_c": 195.69504237986413,
+                        "v_f_plunge": 40,
+                        "v_f_retract": 40
+                    },
+                    {
+                        "f_n": 0.003,
+                        "f_n_retract": 0.003,
+                        "guid": "87f9a92f-eef4-4786-9f66-f59743456fa8",
+                        "n": 4411.994828431397,
+                        "name": "Aluminium preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": true,
+                        "v_c": 172.68110298592478
+                    },
+                    {
+                        "f_n": 0.001,
+                        "f_n_retract": 0.001,
+                        "guid": "2b03d211-ac73-475f-889b-3dd6c3e3ce10",
+                        "n": 2000,
+                        "name": "Harder Materials Preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": true,
+                        "v_c": 78.27801695194567
+                    }
+                ]
+            },
+            "type": "drill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "BMC": "hss",
+            "description": "#18 Jobber Drill",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.1695,
+                "HAND": true,
+                "LB": 2.2,
+                "LCF": 2.125,
+                "NOF": 2,
+                "OAL": 3.25,
+                "SFDM": 0.1695,
+                "SIG": 118,
+                "shoulder-length": 2.125
+            },
+            "guid": "a39b875b-0c9e-4c5c-bb03-9b0c65a6fcdb",
+            "holder": {
+                "description": "TTS-JT1 Holder with 1/4\"\" Drill Chuck",
+                "guid": "ae642cbb-2e8b-4a0e-8dc2-99c82bf6ea3c",
+                "product-id": "30102",
+                "product-link": "https://tormach.com/drill-chuck-jt1-30102.html",
+                "segments": [
+                    {
+                        "height": 5,
+                        "lower-diameter": 17.5,
+                        "upper-diameter": 22
+                    },
+                    {
+                        "height": 10,
+                        "lower-diameter": 22,
+                        "upper-diameter": 22
+                    },
+                    {
+                        "height": 1.5,
+                        "lower-diameter": 22,
+                        "upper-diameter": 31
+                    },
+                    {
+                        "height": 23,
+                        "lower-diameter": 31,
+                        "upper-diameter": 31
+                    },
+                    {
+                        "height": 3.5,
+                        "lower-diameter": 31,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 2,
+                        "lower-diameter": 18,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 27,
+                "length-offset": 27,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 27,
+                "turret": 0
+            },
+            "product-id": "",
+            "product-link": "",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.004,
+                        "f_n_retract": 0.004,
+                        "guid": "449ad4fa-1561-400a-8b6f-87dfc6b69618",
+                        "n": 5633.8032952883295,
+                        "name": "Aluminium preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": true,
+                        "v_c": 250
+                    }
+                ]
+            },
+            "type": "drill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "BMC": "hss",
+            "description": "TTS™ Diamond Drag Engrave",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.25,
+                "HAND": true,
+                "LB": 0.708661417322835,
+                "LCF": 0.5,
+                "NOF": 1,
+                "OAL": 3,
+                "SFDM": 0.25,
+                "TA": 45,
+                "shoulder-length": 0.5,
+                "tip-diameter": 0.0025
+            },
+            "guid": "dc9d54e9-386a-45d6-af67-bca1189c4487",
+            "holder": {
+                "description": "TTS-Diamond Drag Engraver Holder",
+                "guid": "b3fbaa4f-a1de-4b17-8415-9d20a31dd1db",
+                "product-id": "32447",
+                "product-link": "https://tormach.com/tts-diamond-engraver-kit-32447.html",
+                "segments": [
+                    {
+                        "height": 5,
+                        "lower-diameter": 10,
+                        "upper-diameter": 19
+                    },
+                    {
+                        "height": 40,
+                        "lower-diameter": 19,
+                        "upper-diameter": 19
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 28,
+                "length-offset": 28,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 28,
+                "turret": 0
+            },
+            "product-id": "32447 ",
+            "product-link": "https://tormach.com/tts-diamond-engraver-kit-32447.html",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 25,
+                        "f_z": 100,
+                        "guid": "277ff528-30c6-49bc-aee9-1d40518a4ace",
+                        "n": 1,
+                        "n_ramp": 1,
+                        "name": "Engraving Preset",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 0.065449846949787,
+                        "v_f": 100,
+                        "v_f_leadIn": 100,
+                        "v_f_leadOut": 100,
+                        "v_f_plunge": 25.00000000000001,
+                        "v_f_ramp": 100
+                    }
+                ]
+            },
+            "type": "chamfer mill",
+            "unit": "inches",
+            "vendor": "Tormach"
+        },
+        {
+            "description": "TTS-ER20 Holder",
+            "guid": "58357f86-406c-420c-831f-3bbe6839909a",
+            "last_modified": 1678728118003,
+            "product-id": "31829",
+            "product-link": "",
+            "reference_guid": "<NEW TOOL GUID>",
+            "segments": [
+                {
+                    "height": 3.3,
+                    "lower-diameter": 26,
+                    "upper-diameter": 34
+                },
+                {
+                    "height": 19,
+                    "lower-diameter": 34,
+                    "upper-diameter": 34
+                },
+                {
+                    "height": 15,
+                    "lower-diameter": 25,
+                    "upper-diameter": 25
+                },
+                {
+                    "height": 6.7,
+                    "lower-diameter": 38.1,
+                    "upper-diameter": 38.1
+                },
+                {
+                    "height": 2.4,
+                    "lower-diameter": 29.50000000000001,
+                    "upper-diameter": 29.50000000000001
+                },
+                {
+                    "height": 6.830000000000003,
+                    "lower-diameter": 38.1,
+                    "upper-diameter": 38.1
+                }
+            ],
+            "type": "holder",
+            "unit": "millimeters",
+            "vendor": "Tormach"
+        },
+        {
+            "BMC": "hss",
+            "description": "3/8\" Jobber Drill",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.375,
+                "HAND": true,
+                "LB": 3.65,
+                "LCF": 3.625,
+                "NOF": 2,
+                "OAL": 5,
+                "SFDM": 0.375,
+                "SIG": 118,
+                "shoulder-length": 3.625
+            },
+            "guid": "34c2c1f6-6d9b-439d-8a91-2bfdbccf1a27",
+            "holder": {
+                "description": "TTS-JT2 Holder with 3/8\" Drill Chuck",
+                "guid": "b1b13467-75db-4381-97e7-1cec4a098748",
+                "product-id": "30244",
+                "product-link": "https://tormach.com/drill-chuck-jt2-30244.html",
+                "segments": [
+                    {
+                        "height": 4.25,
+                        "lower-diameter": 23,
+                        "upper-diameter": 30.50000000000001
+                    },
+                    {
+                        "height": 13.7,
+                        "lower-diameter": 30.600000000000005,
+                        "upper-diameter": 30.600000000000005
+                    },
+                    {
+                        "height": 1.14,
+                        "lower-diameter": 30.50000000000001,
+                        "upper-diameter": 43
+                    },
+                    {
+                        "height": 30.50000000000001,
+                        "lower-diameter": 43,
+                        "upper-diameter": 43
+                    },
+                    {
+                        "height": 5,
+                        "lower-diameter": 35,
+                        "upper-diameter": 27
+                    },
+                    {
+                        "height": 2,
+                        "lower-diameter": 18,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "last_modified": 1678729091729,
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 29,
+                "length-offset": 29,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 29,
+                "turret": 0
+            },
+            "product-id": "",
+            "product-link": "",
+            "reference_guid": "<NEW TOOL GUID>",
+            "start-values": {
+                "presets": [
+                    {
+                        "guid": "ae664312-3dfa-4b07-8c15-5ec041dc11ff",
+                        "n": 5000,
+                        "name": "Default preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": false,
+                        "v_c": 490.87385212340496,
+                        "v_f_plunge": 40,
+                        "v_f_retract": 40
+                    }
+                ]
+            },
+            "type": "drill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "BMC": "hss",
+            "description": "Jobber Drill # 9",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.196,
+                "HAND": true,
+                "LB": 2.773899999999999,
+                "LCF": 2.4375,
+                "NOF": 2,
+                "OAL": 3.625,
+                "SFDM": 0.196,
+                "SIG": 118,
+                "shoulder-length": 2.4375
+            },
+            "guid": "52dbca0d-5354-4312-89be-caf822ae4d29",
+            "holder": {
+                "description": "TTS-JT1 Holder with 1/4\"\" Drill Chuck",
+                "guid": "ae642cbb-2e8b-4a0e-8dc2-99c82bf6ea3c",
+                "product-id": "30102",
+                "product-link": "https://tormach.com/drill-chuck-jt1-30102.html",
+                "segments": [
+                    {
+                        "height": 5,
+                        "lower-diameter": 17.5,
+                        "upper-diameter": 22
+                    },
+                    {
+                        "height": 10,
+                        "lower-diameter": 22,
+                        "upper-diameter": 22
+                    },
+                    {
+                        "height": 1.5,
+                        "lower-diameter": 22,
+                        "upper-diameter": 31
+                    },
+                    {
+                        "height": 23,
+                        "lower-diameter": 31,
+                        "upper-diameter": 31
+                    },
+                    {
+                        "height": 3.5,
+                        "lower-diameter": 31,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 2,
+                        "lower-diameter": 18,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 30,
+                "length-offset": 30,
+                "live": false,
+                "manual-tool-change": false,
+                "number": 30,
+                "turret": 0
+            },
+            "product-id": "Drill-Set-18003",
+            "product-link": "https://www.maritool.com/Cutting-Tools-Drills-HSS-/-Cobalt-Drill-Sets/c78_140_361_141/p879/Master-set-Jobber-Black-Treated-115-pcs/product_info.html",
+            "start-values": {
+                "presets": [
+                    {
+                        "guid": "1a9bbe30-a68e-415e-a35b-26c860864295",
+                        "n": 5000,
+                        "name": "Default preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": false,
+                        "v_c": 256.56340004316644,
+                        "v_f_plunge": 40,
+                        "v_f_retract": 40
+                    }
+                ]
+            },
+            "type": "drill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "BMC": "hss",
+            "description": "#29 Jobber Drill",
+            "geometry": {
+                "CSP": false,
+                "DC": 0.136,
+                "HAND": true,
+                "LB": 2,
+                "LCF": 1.75,
+                "NOF": 2,
+                "OAL": 2.875,
+                "SFDM": 0.136,
+                "SIG": 118,
+                "shoulder-length": 1.75
+            },
+            "guid": "35a80543-7486-4e8f-8668-b2c514b956fb",
+            "holder": {
+                "description": "TTS-JT1 Holder with 1/4\"\" Drill Chuck",
+                "guid": "ae642cbb-2e8b-4a0e-8dc2-99c82bf6ea3c",
+                "product-id": "30102",
+                "product-link": "https://tormach.com/drill-chuck-jt1-30102.html",
+                "segments": [
+                    {
+                        "height": 5,
+                        "lower-diameter": 17.5,
+                        "upper-diameter": 22
+                    },
+                    {
+                        "height": 10,
+                        "lower-diameter": 22,
+                        "upper-diameter": 22
+                    },
+                    {
+                        "height": 1.5,
+                        "lower-diameter": 22,
+                        "upper-diameter": 31
+                    },
+                    {
+                        "height": 23,
+                        "lower-diameter": 31,
+                        "upper-diameter": 31
+                    },
+                    {
+                        "height": 3.5,
+                        "lower-diameter": 31,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 2,
+                        "lower-diameter": 18,
+                        "upper-diameter": 18
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000005,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 31,
+                "length-offset": 31,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 31,
+                "turret": 0
+            },
+            "product-id": "",
+            "product-link": "",
+            "start-values": {
+                "presets": [
+                    {
+                        "guid": "e91490a3-f06c-4055-9065-f421bdc9ca85",
+                        "n": 5000,
+                        "name": "Default preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": false,
+                        "v_c": 178.02358370342162,
+                        "v_f_plunge": 40,
+                        "v_f_retract": 40
+                    },
+                    {
+                        "f_n": 0.001,
+                        "f_n_retract": 0.001,
+                        "guid": "f6ebb553-52b2-4181-a5ff-2f23ce0889ab",
+                        "n": 4411.994828431397,
+                        "name": "Aluminium preset",
+                        "tool-coolant": "flood",
+                        "use-feed-per-revolution": true,
+                        "v_c": 157.08782612766402
+                    }
+                ]
+            },
+            "type": "drill",
+            "unit": "inches",
+            "vendor": "MariTool"
+        },
+        {
+            "description": "TTS Saw Arbor 1/2\"",
+            "guid": "991d5fa5-7dd6-4602-8034-7914f3f01b08",
+            "product-id": "31829",
+            "product-link": "https://tormach.com/tts-slitting-saw-arbor-32430.html",
+            "segments": [
+                {
+                    "height": 37,
+                    "lower-diameter": 19,
+                    "upper-diameter": 19
+                },
+                {
+                    "height": 4,
+                    "lower-diameter": 19,
+                    "upper-diameter": 25.8
+                },
+                {
+                    "height": 6.7,
+                    "lower-diameter": 38.1,
+                    "upper-diameter": 38.1
+                },
+                {
+                    "height": 2.4,
+                    "lower-diameter": 29.50000000000001,
+                    "upper-diameter": 29.50000000000001
+                },
+                {
+                    "height": 6.830000000000003,
+                    "lower-diameter": 38.1,
+                    "upper-diameter": 38.1
+                }
+            ],
+            "type": "holder",
+            "unit": "millimeters",
+            "vendor": "Tormach"
+        },
+        {
+            "BMC": "hss",
+            "description": "McMaster..024\" Slitting Saw",
+            "geometry": {
+                "CSP": false,
+                "DC": 1.5,
+                "HAND": true,
+                "LB": 0.026,
+                "LCF": 0.024,
+                "NOF": 24,
+                "OAL": 4,
+                "RE": 0,
+                "SFDM": 0.5,
+                "shoulder-length": 0.025
+            },
+            "guid": "4ec762dd-da15-4ee9-98c7-bd7b37541e50",
+            "holder": {
+                "description": "TTS Saw Arbor 1/2\"",
+                "guid": "991d5fa5-7dd6-4602-8034-7914f3f01b08",
+                "product-id": "31829",
+                "product-link": "https://tormach.com/tts-slitting-saw-arbor-32430.html",
+                "segments": [
+                    {
+                        "height": 37,
+                        "lower-diameter": 19,
+                        "upper-diameter": 19
+                    },
+                    {
+                        "height": 4,
+                        "lower-diameter": 19,
+                        "upper-diameter": 25.8
+                    },
+                    {
+                        "height": 6.7,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    },
+                    {
+                        "height": 2.4,
+                        "lower-diameter": 29.50000000000001,
+                        "upper-diameter": 29.50000000000001
+                    },
+                    {
+                        "height": 6.830000000000003,
+                        "lower-diameter": 38.1,
+                        "upper-diameter": 38.1
+                    }
+                ],
+                "type": "holder",
+                "unit": "millimeters",
+                "vendor": "Tormach"
+            },
+            "last_modified": 1681219736382,
+            "post-process": {
+                "break-control": false,
+                "comment": "",
+                "diameter-offset": 32,
+                "length-offset": 32,
+                "live": true,
+                "manual-tool-change": false,
+                "number": 32,
+                "turret": 0
+            },
+            "product-id": "",
+            "product-link": "",
+            "reference_guid": "<NEW TOOL GUID>",
+            "start-values": {
+                "presets": [
+                    {
+                        "f_n": 0.0026666666666666666,
+                        "f_z": 0.0003333333333333333,
+                        "guid": "aec02018-cbad-4379-83c5-f8f60db6aaeb",
+                        "n": 5000,
+                        "n_ramp": 5000,
+                        "name": "Default preset",
+                        "tool-coolant": "flood",
+                        "use-stepdown": false,
+                        "use-stepover": false,
+                        "v_c": 1963.49540849362,
+                        "v_f": 40,
+                        "v_f_leadIn": 40,
+                        "v_f_leadOut": 40,
+                        "v_f_plunge": 13.333333333333334,
+                        "v_f_ramp": 13.333333333333334
+                    }
+                ]
+            },
+            "type": "slot mill",
+            "unit": "inches",
+            "vendor": ""
+        }
+    ],
+    "version": 19
+}
