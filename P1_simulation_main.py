@@ -12,9 +12,9 @@ import math
 matplotlib.use('TkAgg')
 
 if __name__ == '__main__':
-    save = False  # Whether it saves the graphs
+    save = False  # Whether it saves the graphs or not
 
-    tspan = np.linspace(0, 40, 10000)
+    tspan = np.linspace(0, 10, 10000)
     number = 1
 
     def make_plot(name, state):
@@ -41,8 +41,12 @@ if __name__ == '__main__':
         a_length_matrix = [.3265, .3265, .580, .580]
         bottom_length = 0.365
 
+        initial_x = 0.9065
+        initial_y = 0
+        initial_state = 0
+
         # mass_matrix, length_matrix
-        dynamics = P1_dynamics.Dynamics(bottom_length, mass_matrix, length_matrix, a_length_matrix, 0.5, 0.5, 0)
+        dynamics = P1_dynamics.Dynamics(bottom_length, mass_matrix, length_matrix, a_length_matrix, initial_x, initial_y, initial_state)
         dynamics.g = 0
 
         # initial conditions
@@ -54,18 +58,23 @@ if __name__ == '__main__':
         yinit = [q10, q20, 0, 0, 0, 0]
 
         # Solve differential equation
-        # sol = solve_ivp(lambda t, y: dynamics.f(t, y),
-        #                 [tspan[0], tspan[-1]], yinit, t_eval=tspan, rtol=1e-5)
         sol = solve_ivp(lambda t, y: dynamics.f(t, y), [tspan[0], tspan[-1]], yinit, t_eval=tspan, rtol=5e-3)
 
+        # If it is not able to solve the equation, print the error
         if sol.status < 0:
             print(sol.message)
 
+        # Extract the data of the sim
         time = sol.t
         [q1, q2, qd1, qd2, t1, t4] = sol.y
 
-        def compute_end_effectors(q1, q2):
-            q3, q4 = dynamics.get_q3_q4(q1, q2, 0.5, 0.5, 0)
+        # Recompute values. These are not saved in real time because they are occasionally garbage.
+        def compute_end_effectors(q1, q2, iteration):
+            # Only on the first iteration do we provide the hint:
+            if iteration != 0:
+                q3, q4 = dynamics.get_q3_q4(q1, q2)
+            else:
+                q3, q4 = dynamics.get_q3_q4(q1, q2, initial_x, initial_y, initial_state)
 
             ex1 = math.cos(q1) * dynamics.a1
             ey1 = math.sin(q1) * dynamics.a1
@@ -73,16 +82,21 @@ if __name__ == '__main__':
             ex2 = math.cos(q2) * dynamics.a2 + dynamics.LB
             ey2 = math.sin(q2) * dynamics.a2
 
-            ex3 = ex1 + math.cos(q1 + q3) * dynamics.a3
-            ey3 = ey1 + math.sin(q1 + q3) * dynamics.a3
+            [x1, x2, y1, y2] = dynamics.forward_kinematics(q1, q2, q3, q4)
+
+            ex3 = x1
+            ey3 = y1
 
             return ex1, ey1, ex2, ey2, ex3, ey3, q3, q4
 
-
+        # Recalculate each of the above values:
         func_dyn_vector = np.vectorize(compute_end_effectors)
 
-        # TODO note what these values are
-        ex1, ey1, ex2, ey2, ex3, ey3, q3, q4 = func_dyn_vector(q1, q2)
+        # (ex1, ey1) is the end position of link 1
+        # (ex2, ey2) is the end position of link 2
+        # (ex3, ey3) is the end position of link 3
+        # q3, q4 are the angles of link 3 and 4
+        ex1, ey1, ex2, ey2, ex3, ey3, q3, q4 = func_dyn_vector(q1, q2, range(len(q1)))
 
         plt.figure("e3")
         points = np.array([ex3, ey3]).T.reshape(-1, 1, 2)
@@ -102,12 +116,6 @@ if __name__ == '__main__':
             plt.savefig('Saves/' + key)
         else:
             plt.show()
-
-        ###############################################################
-        #                     Inverse Kinematics                      #
-        ###############################################################
-
-
 
         ###############################################################
         #                          Animation                          #

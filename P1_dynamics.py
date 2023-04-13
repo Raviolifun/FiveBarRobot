@@ -11,6 +11,24 @@ import numpy as np
 # Shows the numbering system and where each angle is located. Reference the paper for more information
 
 
+def get_angle_difference(angle_1, angle_2):
+    """
+    Finds the minimum angular difference between two angles that are within the domain of 0 to 2*pi
+    :param angle_1: First input
+    :param angle_2: Second input
+    :return: The difference between the two angles. If angle_2 is larger up to pi than angle_1, output is negative
+    """
+
+    difference = angle_1 - angle_2
+
+    if difference > math.pi:
+        difference = (difference - 2*math.pi)
+    elif difference < -math.pi:
+        difference = (difference + 2*math.pi)
+
+    return difference
+
+
 class Dynamics:
     def __init__(self, bottom_length, mass_matrix, length_matrix, a_length_matrix, x_hint, y_hint, state_hint, i_matrix=None):
         # mass
@@ -136,9 +154,14 @@ class Dynamics:
         q4_2 %= (2 * math.pi)
         q3_2 %= (2 * math.pi)
 
-        # Now see which is closer to the previous hint, and then choose that one (for now at least)
-        first_con = (q4_1 - self.q4_hint) * (q4_1 - self.q4_hint) + (q3_1 - self.q3_hint) * (q3_1 - self.q3_hint)
-        second_con = (q4_2 - self.q4_hint) * (q4_2 - self.q4_hint) + (q3_2 - self.q3_hint) * (q3_2 - self.q3_hint)
+        # Now see which is closer to the previous hint, and then choose that one
+        error4_1 = get_angle_difference(q4_1, self.q4_hint)
+        error4_2 = get_angle_difference(q4_2, self.q4_hint)
+        error3_1 = get_angle_difference(q3_1, self.q3_hint)
+        error3_2 = get_angle_difference(q3_2, self.q3_hint)
+
+        first_con = (error4_1**2) + (error3_1**2)
+        second_con = (error4_2**2) + (error3_2**2)
         self.q1_hint = q1
         self.q2_hint = q2
         # print("q4h: " + str(self.q4_hint) + ", q4_1: " + str(q4_1) + "q4_2: " + str(q4_2))
@@ -291,28 +314,36 @@ class Dynamics:
         # ===========================     Controller time     ==============================
         # ==================================================================================
 
-        angles = self.inverse_kinematics(-0.2, 0.65)[0]
+        if t >= 0.875*4:
+            angles = self.inverse_kinematics(-self.LB * 0.25, 0.6)[0]
+        elif t >= 0.75*4:
+            angles = self.inverse_kinematics(0, 0.5)[2]
+        elif t >= 0.625*4:
+            angles = self.inverse_kinematics(self.LB * 0.25, 0.6)[0]
+        elif t >= 0.5*4:
+            angles = self.inverse_kinematics(self.LB * 0.5, 0.5)[2]
+        elif t >= 0.375*4:
+            angles = self.inverse_kinematics(self.LB * 0.75, 0.6)[0]
+        elif t >= 0.25*4:
+            angles = self.inverse_kinematics(self.LB * 1, 0.5)[2]
+        elif t >= 0.125*4:
+            angles = self.inverse_kinematics(self.LB * 1.25, 0.6)[0]
+        else:
+            angles = self.inverse_kinematics(self.LB * 1.5, 0.5)[2]
+
         #print(angles)
 
         # dirt basic controller, I give it desired positions manually from here
         goal_q1 = angles[0]
         goal_q2 = angles[1]
 
-        error_q1 = goal_q1 - q1
-        error_q2 = goal_q2 - q2
+        error_q1 = get_angle_difference(goal_q1, q1)
+        error_q2 = get_angle_difference(goal_q2, q2)
 
-        error_q1 = error_q1 % (2 * math.pi)
-        if abs(error_q1) > math.pi:
-            error_q1 = -error_q1
+        t1 = error_q1 * 10 - qd1 * 2
+        t2 = error_q2 * 10 - qd2 * 2
 
-        error_q2 = error_q2 % (2 * math.pi)
-        if abs(error_q2) > math.pi:
-            error_q2 = -error_q2
-
-        t1 = error_q1 * 5 - qd1 * 2
-        t2 = error_q2 * 5 - qd2 * 2
-
-        max_torque = 2
+        max_torque = 5
 
         if t1 > max_torque:
             t1 = max_torque
@@ -344,6 +375,8 @@ class Dynamics:
 
         td1 = 0
         td2 = 0
+
+        # print(self.forward_kinematics(q1, q2, q3, q4))
 
         return [qd1, qd2, qdd1, qdd2, td1, td2]
 
@@ -422,27 +455,97 @@ class Dynamics:
         else:
             return []
 
+    def get_closest_solution(self, x, y):
+        """
+        Given an x and y coordinate, find a point closest to that point that is a solution to the kinematics
+        of the five bar.
+        TODO decide what to do if either of the distances are zero
+        :param x: The desired x position
+        :param y: The desired y position
+        :return: An array of the x and y position that meet the solution criteria.
+        """
+        # find the distance values for the left circle
+        left_distance = math.sqrt(x ** 2 + y ** 2)
+        left_min_distance = abs(self.a1 - self.a3)
+        left_max_distance = abs(self.a1 + self.a3)
+
+        # find the distance values for the right circle
+        right_distance = math.sqrt((x - self.LB) ** 2 + y ** 2)
+        right_min_distance = abs(self.a2 - self.a4)
+        right_max_distance = abs(self.a2 + self.a4)
+
+        if left_distance == 0 or right_distance == 0:
+            raise ValueError("Divide by zero error, distance to join cannot be 0. "
+                             "This is technically a bug, feel free to fix this by selecting "
+                             "a random point from the available points.")
+
+        # Find the intersection of the two circles if it exists
+        x1 = (left_min_distance**2 + self.LB**2 - right_min_distance**2) / (2 * self.LB)
+        operand = left_min_distance**2 - x1**2
+        if operand >= 0:
+            # If it exists, do these calcs
+            y1 = math.sqrt(left_min_distance**2 - x1**2)
+
+            if left_distance < left_min_distance or right_distance < right_min_distance:
+                # If the point is within either of the two centers areas:
+                if x < self.LB/2:
+                    # If on the left side, check if the point is within the intersection triangle
+                    cap = y1 / x1 * x
+                    if -cap < y < cap:
+                        # If true, return the closest intersection point
+                        return [x1, math.copysign(y1, y)]
+                    else:
+                        return [x / left_distance * left_min_distance, y / left_distance * left_min_distance]
+                else:
+                    # If on the left side, check if the point is within the intersection triangle
+                    cap = y1 / (x1 - self.LB) * (x - self.LB)
+                    if -cap < y < cap:
+                        # If true, return the closest intersection point
+                        return [x1, math.copysign(y1, y)]
+                    else:
+                        return [(x - self.LB) / right_distance * right_min_distance + self.LB, y / right_distance * right_min_distance]
+
+            elif left_distance < left_max_distance and right_distance < right_max_distance:
+                # If the point is within both of the two major circles, then define the return value as the same value
+                return [x, y]
+
+            else:
+                # if the point does not fall within the available area, find the closest outside point
+                if x < self.LB / 2:
+                    return [(x - self.LB) / right_distance * right_max_distance + self.LB,
+                            y / right_distance * right_max_distance]
+                else:
+                    return [x / left_distance * left_max_distance, y / left_distance * left_max_distance]
+
+        else:
+            if left_distance < left_min_distance or right_distance < right_min_distance:
+                # If the point is within either of the two centers areas:
+                if x < self.LB / 2:
+                    # If on the left side, check if the point is within the intersection triangle
+                    return [x / left_distance * left_min_distance, y / left_distance * left_min_distance]
+                else:
+                    # If on the left side, check if the point is within the intersection triangle
+                    return [(x - self.LB) / right_distance * right_min_distance + self.LB,
+                            y / right_distance * right_min_distance]
+
+            elif left_distance < left_max_distance and right_distance < right_max_distance:
+                # If the point is within both of the two major circles, then define the return value as the same value
+                return [x, y]
+
+            else:
+                # if the point does not fall within the available area, find the closest outside point
+                if x < self.LB / 2:
+                    return [(x - self.LB) / right_distance * right_max_distance + self.LB,
+                            y / right_distance * right_max_distance]
+                else:
+                    return [x / left_distance * left_max_distance, y / left_distance * left_max_distance]
+
     def get_hint_angle(self):
         """
         Gets the current hint angles
         :return: Returns the current hint angles from 1 to 4 in a list and the hint state
         """
         return [self.q1_hint, self.q2_hint, self.q3_hint, self.q4_hint], self.state_hint
-
-    def draw_line(self, x0, y0, t0, x1, y1, t1, resolution):
-        """
-        Finds a list of angles from position (x0, y0) to (x1, y1) at a given resolution between time instance t0 and t1
-        This is a very basic mapping from the xy frame to the angular frame of the robot
-        :param x0: Initial x position
-        :param y0: Initial y position
-        :param t0: Initial time
-        :param x1: Final x position
-        :param y1: Final y position
-        :param t1: Final time
-        :param resolution: The number of points that the line is broken into
-        :return:
-        """
-        pass
 
     def cartesian_distance_to_singularity(self, x, y):
         """
@@ -470,5 +573,3 @@ class Dynamics:
         y2 = self.a2 * math.sin(q2) + self.a4 * math.sin(q2 + q4)
 
         return [x1, x2, y1, y2]
-
-
