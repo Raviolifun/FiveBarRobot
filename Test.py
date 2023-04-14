@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import matplotlib as mpl
-import P1_dynamics
+import Simulator.P1_dynamics as P1_dynamics
 import math
 
 # initial parameters
