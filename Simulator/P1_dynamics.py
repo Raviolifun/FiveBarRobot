@@ -460,6 +460,7 @@ class Dynamics:
         Given an x and y coordinate, find a point closest to that point that is a solution to the kinematics
         of the five bar.
         TODO decide what to do if either of the distances are zero
+        TODO This does not account for when the base is too far apart, check for big and small circle collision
         :param x: The desired x position
         :param y: The desired y position
         :return: An array of the x and y position that meet the solution criteria.
@@ -482,13 +483,17 @@ class Dynamics:
         # Find the intersection of the two circles if it exists
         x1 = (left_min_distance**2 + self.LB**2 - right_min_distance**2) / (2 * self.LB)
         operand = left_min_distance**2 - x1**2
+
+        center_line_small = left_min_distance + (self.LB - left_min_distance - right_min_distance)/2
+        center_line_big = (right_max_distance**2 - left_max_distance**2 - self.LB**2) / (-2 * self.LB)
+
         if operand >= 0:
             # If it exists, do these calcs
             y1 = math.sqrt(left_min_distance**2 - x1**2)
 
             if left_distance < left_min_distance or right_distance < right_min_distance:
                 # If the point is within either of the two centers areas:
-                if x < self.LB/2:
+                if x < x1:
                     # If on the left side, check if the point is within the intersection triangle
                     cap = y1 / x1 * x
                     if -cap < y < cap:
@@ -511,7 +516,7 @@ class Dynamics:
 
             else:
                 # if the point does not fall within the available area, find the closest outside point
-                if x < self.LB / 2:
+                if x < center_line_big:
                     return [(x - self.LB) / right_distance * right_max_distance + self.LB,
                             y / right_distance * right_max_distance]
                 else:
@@ -520,7 +525,7 @@ class Dynamics:
         else:
             if left_distance < left_min_distance or right_distance < right_min_distance:
                 # If the point is within either of the two centers areas:
-                if x < self.LB / 2:
+                if x < center_line_small:
                     # If on the left side, check if the point is within the intersection triangle
                     return [x / left_distance * left_min_distance, y / left_distance * left_min_distance]
                 else:
@@ -534,7 +539,7 @@ class Dynamics:
 
             else:
                 # if the point does not fall within the available area, find the closest outside point
-                if x < self.LB / 2:
+                if x < center_line_big:
                     return [(x - self.LB) / right_distance * right_max_distance + self.LB,
                             y / right_distance * right_max_distance]
                 else:
