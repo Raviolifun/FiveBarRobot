@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import matplotlib as mpl
-import Simulator.P1_dynamics as P1_dynamics
+import Simulator.FiveBarDynamics as FiveBarDynamics
 import math
 
 # initial parameters
@@ -12,7 +12,7 @@ a_length_matrix = [.3265, .3265, .580, .580]
 bottom_length = 0.6
 
 # mass_matrix, length_matrix
-dynamics = P1_dynamics.Dynamics(bottom_length, mass_matrix, length_matrix, a_length_matrix, 0.35, 0.38, 0)
+dynamics = FiveBarDynamics.Dynamics(bottom_length, mass_matrix, length_matrix, a_length_matrix, 0.35, 0.38, 0)
 dynamics.g = 0
 
 angle = dynamics.get_hint_angle()[0]

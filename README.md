@@ -26,6 +26,18 @@ pip install https://github.com/kivy/kivy/archive/master.zip
 pip install https://github.com/kivymd/KivyMD/archive/master.zip
 ```
 
+Hardware Requirements
+---------------------
+This project was built to run on Ubuntu Mate for the raspberry pi. However, many of the python files included in this
+repository can run on Windows machines with no issues.
+
+When first connecting to the ODrive, your computer may have difficultly communicating with the device.
+This is often because your computer lacks the drivers required to communicate with the device.
+These can be installed by using [Zadig](https://zadig.akeo.ie/), viewing all devices via the options menu, and then
+installing "WinUSB" to the native interface for use with the odrivetool. Restart the computer if issues persist.
+If none of these options work, refer to the [Odrive documentation](https://docs.odriverobotics.com/v/0.5.5/troubleshooting.html#troubleshooting) for trouble shooting.
+
+
 The Story
 ---------------------
 

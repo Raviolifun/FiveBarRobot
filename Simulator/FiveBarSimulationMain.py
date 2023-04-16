@@ -1,4 +1,4 @@
-import P1_dynamics
+import FiveBarDynamics
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
@@ -46,7 +46,7 @@ if __name__ == '__main__':
         initial_state = 0
 
         # mass_matrix, length_matrix
-        dynamics = P1_dynamics.Dynamics(bottom_length, mass_matrix, length_matrix, a_length_matrix, initial_x, initial_y, initial_state)
+        dynamics = FiveBarDynamics.Dynamics(bottom_length, mass_matrix, length_matrix, a_length_matrix, initial_x, initial_y, initial_state)
         dynamics.g = 0
 
         # initial conditions
@@ -102,6 +102,7 @@ if __name__ == '__main__':
         points = np.array([ex3, ey3]).T.reshape(-1, 1, 2)
         segments = np.concatenate([points[:-1], points[1:]], axis=1)
 
+        # TODO I do no t think the color mapping over time is working correctly
         norm = plt.Normalize(time.min(), time.max())
         lc = LineCollection(segments, cmap='viridis', norm=norm)
         # Set the values used for colormapping

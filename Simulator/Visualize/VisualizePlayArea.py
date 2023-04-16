@@ -1,20 +1,20 @@
 import numpy as np
 import matplotlib.pylab as plt
-import Simulator.P1_dynamics as P1_dynamics
+import Simulator.FiveBarDynamics as FiveBarDynamics
 import math
 
-mass_matrix = [.048, .048, .074+0.050, .074+0.050]
+mass_matrix = [.048, .048, .074 + 0.050, .074 + 0.050]
 length_matrix = [.163, .163, .450, .450]
-a_length_matrix = [.3265, .3265, .780, .580]
-bottom_length = 0.4
+a_length_matrix = [.3265, .3265, .580, .580]
+bottom_length = 0.365
 
 # mass_matrix, length_matrix
-dynamics = P1_dynamics.Dynamics(bottom_length, mass_matrix, length_matrix, a_length_matrix, 0.35, 0.38, 0)
+dynamics = FiveBarDynamics.Dynamics(bottom_length, mass_matrix, length_matrix, a_length_matrix, 0.35, 0.38, 0)
 dynamics.g = 0
 
 # Initialize the x and y matrices
-x_res = 2000
-y_res = 2000
+x_res = 1000
+y_res = 1000
 
 x, y = np.meshgrid(np.linspace(-1, 1 + bottom_length, x_res), np.linspace(-1, 1, y_res))
 z = np.zeros((x_res, y_res))
