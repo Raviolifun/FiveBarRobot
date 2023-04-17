@@ -12,9 +12,13 @@ import math
 matplotlib.use('TkAgg')
 
 if __name__ == '__main__':
-    save = False  # Whether it saves the graphs or not
+    save = True  # Whether it saves the graphs or not
 
-    tspan = np.linspace(0, 10, 10000)
+    t_start = 0
+    t_end = 10
+    resolution = 1000
+
+    tspan = np.linspace(t_start, t_end, resolution)
     number = 1
 
     def make_plot(name, state):
@@ -66,7 +70,7 @@ if __name__ == '__main__':
         plt.gca().set_ylim(y.min(), y.max())
 
         if save:
-            plt.savefig('Saves/' + key)
+            plt.savefig('../Saves/' + key)
         else:
             plt.show()
 
@@ -90,9 +94,8 @@ if __name__ == '__main__':
 
         box_style = BoxStyle("Round", pad=0)
 
-        # My current guess is that my animation is screwing up the rotation matrices at some point...
         def animate(i):
-            time = i * interval
+            time = i
 
             x_point.append(interp_function_x(time))
             y_point.append(interp_function_y(time))
@@ -103,12 +106,12 @@ if __name__ == '__main__':
             ax.set_xlim(x_min - 1, x_max + 1)
             ax.set_ylim(y_min - 1, y_max + 1)
 
-
         # run the animation
-        ani = FuncAnimation(fig, animate, frames=int(time.max()/interval) - 1, interval=interval*1000, repeat=False)
+        # TODO, still didn't fix it.
+        ani = FuncAnimation(fig, animate, frames=time, interval=(t_end - t_start)/resolution*1000, repeat=False)
 
         if save:
-            f = r"C:\Users\ravio\Documents\2_School\School 2022-2023\1_Spring\Honors Thesis\FiveBarRobot\Saves\animation.gif"
+            f = r"C:\Users\ravio\Documents\2_School\School 2022-2023\1_Spring\Honors Thesis\FiveBarRobot\Saves\animation_test.gif"
             writergif = PillowWriter(fps=30)
             ani.save(f, writer=writergif)
         else:
