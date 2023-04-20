@@ -1,4 +1,5 @@
 import numpy as np
+from scipy.interpolate import interp1d
 
 
 def draw_line(dynamics, x0, y0, t0, x1, y1, t1, state, resolution):
@@ -22,15 +23,8 @@ def draw_line(dynamics, x0, y0, t0, x1, y1, t1, state, resolution):
     y = np.linspace(y0, y1, resolution)
     t = np.linspace(t0, t1, resolution)
 
-    def inverse_kinematics(x, y):
-        outputs = dynamics.inverse_kinematics(x, y)
-
-        if outputs:
-            return outputs[state]
-        else:
-            return dynamics.get_closest_solution(x, y)
-
-    func_inv_vector = np.vectorize(dynamics.inverse_kinematics)
+    for i in range(resolution):
+        [x[i], y[i]] = dynamics.get_closest_solution(x[i], y[i])
 
     return PathSegment(x, y, t)
 
@@ -43,8 +37,33 @@ class PathSegment:
 
 
 class Path:
-    def __init__(self, list_of_segments):
-        pass
+    def __init__(self, list_of_path_segments):
+        if len(list_of_path_segments) == 1:
+            self.x = list_of_path_segments[0].x
+            self.y = list_of_path_segments[0].y
+            self.t = list_of_path_segments[0].t
+        else:
+            self.x = np.array([])
+            self.y = np.array([])
+            self.t = np.array([])
+
+            for i in range(len(list_of_path_segments)):
+                self.x = np.concatenate((self.x, list_of_path_segments[i].x), axis=None)
+                self.y = np.concatenate((self.y, list_of_path_segments[i].y), axis=None)
+                self.t = np.concatenate((self.t, list_of_path_segments[i].t), axis=None)
+
+        self.interp_function_x = interp1d(self.t, self.x)
+        self.interp_function_y = interp1d(self.t, self.y)
+
+    def get_xy_at_time(self, time):
+        if time < self.t[0]:
+            return [self.x[0], self.y[0]]
+        if time > self.t[-1]:
+            return [self.x[-1], self.y[-1]]
+        else:
+            x = self.interp_function_x(time)
+            y = self.interp_function_y(time)
+            return [x, y]
 
     def check_smoothness(self, error):
         pass

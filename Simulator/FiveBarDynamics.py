@@ -58,6 +58,9 @@ class Dynamics:
         # Desired start position:
         hint_angle_options = self.inverse_kinematics(self.x_hint, self.y_hint)
 
+        # Path
+        self.path = None
+
         if hint_angle_options:
             hint_angles = hint_angle_options[self.state_hint]
             self.q1_hint = hint_angles[0] % (2 * math.pi)
@@ -314,24 +317,7 @@ class Dynamics:
         # ===========================     Controller time     ==============================
         # ==================================================================================
 
-        if t >= 0.875*4:
-            angles = self.inverse_kinematics(-self.LB * 0.25, 0.6)[0]
-        elif t >= 0.75*4:
-            angles = self.inverse_kinematics(0, 0.5)[2]
-        elif t >= 0.625*4:
-            angles = self.inverse_kinematics(self.LB * 0.25, 0.6)[0]
-        elif t >= 0.5*4:
-            angles = self.inverse_kinematics(self.LB * 0.5, 0.5)[2]
-        elif t >= 0.375*4:
-            angles = self.inverse_kinematics(self.LB * 0.75, 0.6)[0]
-        elif t >= 0.25*4:
-            angles = self.inverse_kinematics(self.LB * 1, 0.5)[2]
-        elif t >= 0.125*4:
-            angles = self.inverse_kinematics(self.LB * 1.25, 0.6)[0]
-        else:
-            angles = self.inverse_kinematics(self.LB * 1.5, 0.5)[2]
-
-        #print(angles)
+        angles = self.inverse_kinematics(*self.path.get_xy_at_time(t))[0]
 
         # dirt basic controller, I give it desired positions manually from here
         goal_q1 = angles[0]
@@ -578,3 +564,6 @@ class Dynamics:
         y2 = self.a2 * math.sin(q2) + self.a4 * math.sin(q2 + q4)
 
         return [x1, x2, y1, y2]
+
+    def set_path(self, path):
+        self.path = path

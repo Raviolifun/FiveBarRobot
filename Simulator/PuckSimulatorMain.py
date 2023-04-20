@@ -12,7 +12,7 @@ import math
 matplotlib.use('TkAgg')
 
 if __name__ == '__main__':
-    save = True  # Whether it saves the graphs or not
+    save = False  # Whether it saves the graphs or not
 
     t_start = 0
     t_end = 10
@@ -38,10 +38,10 @@ if __name__ == '__main__':
 
     for i in range(number):
         # mass_matrix, length_matrix
-        dynamics = PuckDynamics.Dynamics(0.01, 0.01, 0.01, 0.95, 0, 0)
+        dynamics = PuckDynamics.Dynamics(0.01, 0.01, 0.1, 0.95, 0, 0, 5, 10, 0, 0)
 
         # x, y, xd, yd
-        yinit = [0, 0, 10, 10]
+        yinit = [0.2, 0.2, 10, 10]
 
         # Solve differential equation
         sol = solve_ivp(lambda t, y: dynamics.f(t, y), [tspan[0], tspan[-1]], yinit, t_eval=tspan, rtol=5e-3)

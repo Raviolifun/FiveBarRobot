@@ -13,8 +13,8 @@ dynamics = FiveBarDynamics.Dynamics(bottom_length, mass_matrix, length_matrix, a
 dynamics.g = 0
 
 # Initialize the x and y matrices
-x_res = 1000
-y_res = 1000
+x_res = 2000
+y_res = 2000
 
 x, y = np.meshgrid(np.linspace(-1, 1 + bottom_length, x_res), np.linspace(-1, 1, y_res))
 z = np.zeros((x_res, y_res))
@@ -26,7 +26,8 @@ for i in range(len(x)):
 
         # Set it up such that it shows where the edges of the graph are.
         if distance != 0:
-            z[i, j] = 1/(distance+0.1) + distance**2
+            # z[i, j] = 1/(distance+0.1) + distance**2
+            z[i, j] = distance
         else:
             z[i, j] = 0
 
@@ -42,8 +43,9 @@ c = ax.pcolormesh(x, y, z, cmap=plt.cm.get_cmap('bone').reversed(), vmin=z_min, 
 ax.set_title('Play Area Visualization')
 # set the limits of the plot to the limits of the data
 ax.axis([x.min(), x.max(), y.min(), y.max()])
-plt.xlabel("x Axis")
-plt.ylabel("y Axis")
+plt.ylabel("$y$ $(m)$")
+plt.xlabel("$x$ $(m)$")
 fig.colorbar(c, ax=ax)
 
 plt.show()
+# plt.savefig('Save/VisualizePlayAreaDistance')
