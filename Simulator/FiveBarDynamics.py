@@ -326,8 +326,8 @@ class Dynamics:
         error_q1 = get_angle_difference(goal_q1, q1)
         error_q2 = get_angle_difference(goal_q2, q2)
 
-        t1 = error_q1 * 10 - qd1 * 2
-        t2 = error_q2 * 10 - qd2 * 2
+        t1 = error_q1 * 150 - qd1 * 5
+        t2 = error_q2 * 155 - qd2 * 5
 
         max_torque = 5
 
@@ -441,7 +441,7 @@ class Dynamics:
         else:
             return []
 
-    def get_closest_solution(self, x, y):
+    def get_closest_solution(self, x, y, offset=0.0):
         """
         Given an x and y coordinate, find a point closest to that point that is a solution to the kinematics
         of the five bar.
@@ -449,17 +449,18 @@ class Dynamics:
         TODO This does not account for when the base is too far apart, check for big and small circle collision
         :param x: The desired x position
         :param y: The desired y position
-        :return: An array of the x and y position that meet the solution criteria.
+        :param offset: an amount to offset a point by, protects against rounding errors
+        :return: An array of the x and y position that meet the solution criteria offset by the given amount.
         """
         # find the distance values for the left circle
         left_distance = math.sqrt(x ** 2 + y ** 2)
-        left_min_distance = abs(self.a1 - self.a3)
-        left_max_distance = abs(self.a1 + self.a3)
+        left_min_distance = abs(self.a1 - self.a3) + offset
+        left_max_distance = abs(self.a1 + self.a3) - offset
 
         # find the distance values for the right circle
         right_distance = math.sqrt((x - self.LB) ** 2 + y ** 2)
-        right_min_distance = abs(self.a2 - self.a4)
-        right_max_distance = abs(self.a2 + self.a4)
+        right_min_distance = abs(self.a2 - self.a4) + offset
+        right_max_distance = abs(self.a2 + self.a4) - offset
 
         if left_distance == 0 or right_distance == 0:
             raise ValueError("Divide by zero error, distance to join cannot be 0. "
@@ -486,6 +487,7 @@ class Dynamics:
                         # If true, return the closest intersection point
                         return [x1, math.copysign(y1, y)]
                     else:
+                        # If not in the triangle, find the value closest to the circle
                         return [x / left_distance * left_min_distance, y / left_distance * left_min_distance]
                 else:
                     # If on the left side, check if the point is within the intersection triangle

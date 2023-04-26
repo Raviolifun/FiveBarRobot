@@ -16,7 +16,7 @@ if __name__ == '__main__':
 
     t_start = 0
     t_end = 10
-    resolution = 1000
+    resolution = 5000
 
     tspan = np.linspace(t_start, t_end, resolution)
     number = 1
@@ -38,21 +38,50 @@ if __name__ == '__main__':
 
     for i in range(number):
         # mass_matrix, length_matrix
-        dynamics = PuckDynamics.Dynamics(0.01, 0.01, 0.1, 0.95, 0, 0, 5, 10, 0, 0)
+        dynamics = PuckDynamics.Dynamics(0.01, 1.25, 0.01, 0.95, 0, 0, 40, 80, 0, 0)
 
         # x, y, xd, yd
-        yinit = [0.2, 0.2, 10, 10]
+        yinit = [3, 3, 30, 100]
+        #
+        # # Solve differential equation
+        # sol = solve_ivp(lambda t, y: dynamics.f(t, y), [tspan[0], tspan[-1]], yinit, t_eval=tspan, rtol=5e-3)
+        #
+        # # If it is not able to solve the equation, print the error
+        # if sol.status < 0:
+        #     print(sol.message)
+        #
+        # # Extract the data of the sim
+        # time = sol.t
+        # [x, y, xd, yd] = sol.y
 
-        # Solve differential equation
-        sol = solve_ivp(lambda t, y: dynamics.f(t, y), [tspan[0], tspan[-1]], yinit, t_eval=tspan, rtol=5e-3)
+        # Time to run sim over
+        time = tspan
 
-        # If it is not able to solve the equation, print the error
-        if sol.status < 0:
-            print(sol.message)
+        # Basic solver
+        dt = (tspan[-1] - tspan[0]) / len(tspan)
 
-        # Extract the data of the sim
-        time = sol.t
-        [x, y, xd, yd] = sol.y
+        x = [None] * len(tspan)
+        x[0] = yinit[0]
+        y = [None] * len(tspan)
+        y[0] = yinit[1]
+        xd = [None] * len(tspan)
+        xd[0] = yinit[2]
+        yd = [None] * len(tspan)
+        yd[0] = yinit[3]
+
+        for i in range(len(tspan) - 1):
+            dh = dynamics.f(tspan[i], [x[i], y[i], xd[i], yd[i]], dt = dt)
+            x_increase = dh[0] * dt
+            y_increase = dh[1] * dt
+            xd_increase = dh[2] * dt
+            yd_increase = dh[3] * dt
+            x[i + 1] = x_increase + x[i]
+            y[i + 1] = y_increase + y[i]
+            xd[i + 1] = xd_increase + xd[i]
+            yd[i + 1] = yd_increase + yd[i]
+
+        x = np.array(x)
+        y = np.array(y)
 
         plt.figure("Puck Position")
         points = np.array([x, y]).T.reshape(-1, 1, 2)
