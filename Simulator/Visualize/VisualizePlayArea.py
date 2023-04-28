@@ -21,7 +21,7 @@ z = np.zeros((x_res, y_res))
 
 for i in range(len(x)):
     for j in range(len(x[i])):
-        val = dynamics.get_closest_solution(x[i, j], y[i, j] , offset=0.1)
+        val = dynamics.get_closest_solution(x[i, j], y[i, j], offset=0.01)
         distance = math.sqrt((val[0] - x[i, j])**2 + (val[1] - y[i, j])**2)
 
         # Set it up such that it shows where the edges of the graph are.

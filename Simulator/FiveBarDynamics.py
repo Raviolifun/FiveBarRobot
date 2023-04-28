@@ -542,7 +542,7 @@ class Dynamics:
 
     def cartesian_distance_to_singularity(self, x, y):
         """
-        Given an x and a y position, outputs the cartesian distances to all possible singularities
+        Given an x and a y position, outputs the cartesian distances to the closest singularity
         :param x: The x position of the robot in the robot frame
         :param y: The y position of the robot in the robot frame
         :return: A matrix of the lengths to each singularity. Should always be of length 4 like so: [L1, L2, L3, L4]

@@ -3,8 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import matplotlib as mpl
 import Simulator.FiveBarDynamics as FiveBarDynamics
-import Controller.PathGenerator as PathGenerator
-import math
+import Controller.PathGenerator as PathGeneratorimport
 
 
 # initial parameters
