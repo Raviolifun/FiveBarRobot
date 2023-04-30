@@ -12,6 +12,7 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import JointState, Joy
 from std_msgs.msg import Float64MultiArray
+from geometry_msgs.msg import PoseStamped
 from Simulator.FiveBarDynamics import Dynamics
 
 
@@ -22,7 +23,8 @@ class OdriveDriver(Node):
         super().__init__("odrive_driver")
 
         self.subscription = self.create_subscription(msg_type=Joy, topic="joy", callback=self.joy_control, qos_profile=1)
-        self.subscription2 = self.create_subscription(msg_type=JointState, topic="joint_state", callback=self.joint_state, qos_profile=1)
+        self.subscription2 = self.create_subscription(msg_type=PoseStamped, topic="robot_pose", callback=self.robot_pose, qos_profile=1)
+        self.joint_state_pub = self.create_publisher(msg_type=JointState, topic="joint_state", qos_profile=1)
         self.publisher = self.create_publisher(msg_type=Float64MultiArray, topic="encoder", qos_profile=1)
         # self.timer = self.create_timer(timer_period_sec = , callback = )
 
@@ -39,10 +41,12 @@ class OdriveDriver(Node):
         self.odrv0.axis1.requested_state = AXIS_STATE_CLOSED_LOOP_CONTROL
         self.dt = 1 / 20.0
         self.x = 0.25
-        self.y = 0.5
+        self.y = 0.6
 
         self.flag = False
         self.flag2 = True
+        self.joy_flag = False
+
         self.print_log = False
         self.enc_log = False
         self.theta_log = False
@@ -60,6 +64,10 @@ class OdriveDriver(Node):
     def joy_control(self, msg=Joy):
         """Simple Joy Mapper from x-y translation to joy axes"""
         # Callback Params
+        self.joy_flag = True if msg.buttons[7] == 1 else False
+
+        if self.joy_flag is False:
+            return
 
         self.offset1 = self.get_parameter("theta_offset1").get_parameter_value().double_value
         self.offset2 = self.get_parameter("theta_offset2").get_parameter_value().double_value
@@ -75,6 +83,7 @@ class OdriveDriver(Node):
         if self.flag is True:
             self.odrv0.axis0.requested_state = AXIS_STATE_IDLE
             self.odrv0.axis1.requested_state = AXIS_STATE_IDLE
+            self.get_logger().warn("ODrive in Idle State")
             return
         else:
             self.odrv0.axis0.requested_state = AXIS_STATE_CLOSED_LOOP_CONTROL
@@ -86,27 +95,27 @@ class OdriveDriver(Node):
         self.x += round(x_vel * self.dt, 3)
         self.y += round(y_vel * self.dt, 3)
 
-        self.x = min(self.x, 0.49)
-        self.x = max(self.x, 0)
-        self.y = min(self.y, 0.75)
-        self.y = max(self.y, 0.35)
+        self.x = min(self.x, 0.7)
+        self.x = max(self.x, -0.2)
+        self.y = min(self.y, 0.85)
+        self.y = max(self.y, 0.25)
 
         self.x, self.y = self.dynamics.get_closest_solution(self.x, self.y, 0.01)
-        theta1, theta2, _, _ = self.dynamics.inverse_kinematics(self.x, self.y)[0]
+        theta1, theta2, theta3, theta4 = self.dynamics.inverse_kinematics(self.x, self.y)[0]
 
         if self.print_log is True:
             self.get_logger().info(f"x = {self.x}, y = {self.y}")
 
         if self.flag2 is True:
-            theta1 = 0.0
-            theta2 = 0.0
-            return
+            theta1 = math.pi / 2
+            theta2 = math.pi / 2
+            self.get_logger().info("Setting To 90 Degrees")
 
-        theta1 = theta1 / (2 * math.pi) + math.radians(self.offset1)  # converting to rotations where 2pi is one rotation.
-        theta2 = (theta2 / (2 * math.pi)) + math.radians(self.offset2)
+        theta1 = -(theta1 + math.radians(self.offset1)) / (2 * math.pi)  # converting to rotations where 2pi is one rotation.
+        theta2 = -(theta2 + math.radians(self.offset2)) / (2 * math.pi)
 
         if self.theta_log is True:
-            self.get_logger().info(f"theta1 = {math.degrees(theta1)}, theta2 = {math.degrees(theta2)}")
+            self.get_logger().info(f"theta1 = {math.degrees(-theta1)}, theta2 = {math.degrees(-theta2)}")
 
         self.odrv0.axis0.controller.input_pos = theta1
         self.odrv0.axis1.controller.input_pos = theta2
@@ -120,10 +129,43 @@ class OdriveDriver(Node):
         msg_encoder = Float64MultiArray()
         msg_encoder.data = [encoder1, encoder2]
         self.publisher.publish(msg_encoder)
+        msg_joint_state = JointState()
+        msg_joint_state.position = [theta1, theta2, theta3, theta4]
+        msg_joint_state.position = [self.x, self.y, theta1, theta2, theta3, theta4]
+        msg_joint_state.name = ["EndPointPoseX", "EndPointPoseY", "Joint1", "Joint2", "Joint3", "Joint4"]
+        self.joint_state_pub.publish(msg_joint_state)
 
-    def joint_state(self, msg=JointState):
-        """Publishing position joint states of the 5-Bar Mechanism"""
-        # You need replace this
+    def robot_pose(self, msg=PoseStamped):
+
+        if self.joy_flag is True:
+            return
+
+        self.x = msg.x
+        self.y = msg.y
+        self.x = min(self.x, 0.7)
+        self.x = max(self.x, -0.2)
+        self.y = min(self.y, 0.85)
+        self.y = max(self.y, 0.25)
+
+        self.x, self.y = self.dynamics.get_closest_solution(self.x, self.y, 0.01)
+        theta1, theta2, theta3, theta4 = self.dynamics.inverse_kinematics(self.x, self.y)[0]
+
+        theta1 = -(theta1 + math.radians(self.offset1)) / (2 * math.pi)  # converting to rotations where 2pi is one rotation.
+        theta2 = -(theta2 + math.radians(self.offset2)) / (2 * math.pi)
+
+        self.odrv0.axis0.controller.input_pos = theta1
+        self.odrv0.axis1.controller.input_pos = theta2
+
+        encoder1 = self.odrv0.axis1.encoder.pos_estimate
+        encoder2 = self.odrv0.axis1.encoder.pos_estimate
+
+        msg_encoder = Float64MultiArray()
+        msg_encoder.data = [encoder1, encoder2]
+        self.publisher.publish(msg_encoder)
+        msg_joint_state = JointState()
+        msg_joint_state.position = [self.x, self.y, theta1, theta2, theta3, theta4]
+        msg_joint_state.name = ["EndPointPoseX", "EndPointPoseY", "Joint1", "Joint2", "Joint3", "Joint4"]
+        self.joint_state_pub.publish(msg_joint_state)
 
 
 def main(args=None):
