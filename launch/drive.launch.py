@@ -13,8 +13,8 @@ def generate_launch_description():
         output="screen",
         parameters=[
             {
-                "theta_offset1": 30.0,
-                "theta_offset2": 7.0,
+                "theta_offset1": 20.0,
+                "theta_offset2": 20.0,
             }
         ],
     )

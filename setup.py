@@ -22,6 +22,10 @@ setup(
     description="Package for controlling five bar robot",
     license="MIT",
     entry_points={
-        "console_scripts": ["driver = five_bar_robot.odrive_driver:main", "pose_demo = five_bar_robot.pose_demo:main"],
+        "console_scripts": [
+            "driver = five_bar_robot.odrive_driver:main",
+            "pose_demo = five_bar_robot.pose_demo:main",
+            "puck_detector = five_bar_robot.cam_sub:main",
+        ],
     },
 )

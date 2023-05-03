@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Int16, Float32, String
-from geometry_msgs.msg import PoseStamped
+from geometry_msgs.msg import PointStamped
 from rclpy.callback_groups import ReentrantCallbackGroup, MutuallyExclusiveCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
 from nav_msgs.msg import Path
@@ -36,7 +36,7 @@ class PathDemos:
 
     def figure_8(self):
 
-        figure8_pose_matrix = np.array([[0.25, 0.9], [-0.5, 0.7], [1.0, 0.5], [0.25, 0.3], [-0.5, 0.5], [1.0, 0.7]])
+        figure8_pose_matrix = np.array([[0.25, 0.74], [-0.5, 0.5], [1.0, 0.3], [0.25, 0.2], [-0.5, 0.3], [1.0, 0.5]])
 
         points1_matrix = figure8_pose_matrix[0:4, :]
 
@@ -92,7 +92,7 @@ class PoseDemo(Node):
         super().__init__("pose_demo")
 
         # self.subscription = self.create_subscription(msg_type = , topic = , callback = , qos_profile = 1)
-        self.publisher = self.create_publisher(msg_type=PoseStamped, topic="robot_pose", qos_profile=1)
+        self.publisher = self.create_publisher(msg_type=PointStamped, topic="robot_pose", qos_profile=1)
         self.publisher2 = self.create_publisher(msg_type=Path, topic="robot_path", qos_profile=1)
         self.timer = self.create_timer(timer_period_sec=1 / 1000, callback=self.robot_pose_demo)
         self.declare_parameter("Pose", "figure8")
@@ -119,10 +119,10 @@ class PoseDemo(Node):
         self.msg_invertedW = Path()
 
         for i, _ in enumerate(self.x_w):
-            msg_list = PoseStamped()
-            msg_list.pose.position.x = self.x_w[i]
-            msg_list.pose.position.y = self.y_w[i]
-            msg_list.pose.position.z = 0.0
+            msg_list = PointStamped()
+            msg_list.point.x = self.x_w[i]
+            msg_list.point.y = self.y_w[i]
+            msg_list.point.z = 0.0
             self.msg_invertedW.poses.append(msg_list)
         self.msg_invertedW.header.stamp = self.get_clock().now().to_msg()
         self.msg_invertedW.header.frame_id = "robot"
