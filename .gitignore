@@ -1,4 +1,6 @@
 venv/
 .idea/
 .venv/
-Simulator/__pycache__
+Test.py
+Controller/__pycache__/
+Simulator/__pycache__/

@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
 from matplotlib.animation import FuncAnimation, PillowWriter
 from matplotlib.patches import FancyBboxPatch, BoxStyle, Rectangle
+import Controller.PathGenerator as PathGenerator
 from scipy.integrate import solve_ivp
 from scipy.interpolate import interp1d
 import math
@@ -20,7 +21,7 @@ if __name__ == '__main__':
     def make_plot(name, state):
         plt.figure(name)
         plt.clf()
-        plt.title(state)
+        # plt.title(state)
         plt.ylabel("$y(t)$ $(m)$")
         plt.xlabel("$x(t)$ $(m)$")
         plt.grid()
@@ -38,16 +39,20 @@ if __name__ == '__main__':
         # initial parameters
         mass_matrix = [.048, .048, .074+0.050, .074+0.050]
         length_matrix = [.163, .163, .450, .450]
-        a_length_matrix = [.3265, .3265, .580, .580]
-        bottom_length = 0.365
+        a_length_matrix = [.335, .335, .6025, .6025]
+        bottom_length = 0.4925
 
-        initial_x = 0.9065
-        initial_y = 0
-        initial_state = 0
+        initial_x = 0.6
+        initial_y = 0.4
+        initial_state = 2
 
         # mass_matrix, length_matrix
         dynamics = FiveBarDynamics.Dynamics(bottom_length, mass_matrix, length_matrix, a_length_matrix, initial_x, initial_y, initial_state)
         dynamics.g = 0
+
+        # Set the path to follow
+        path = PathGenerator.Path([PathGenerator.draw_line(dynamics, initial_x, initial_y, 0, 0.5, 0.5, 1, 0, 10), PathGenerator.draw_line(dynamics, 0.5, 0.5, 1, -0.25, 0.25, 2, 0, 10), PathGenerator.draw_line(dynamics, -0.25, 0.25, 2, -0.2, 0.6, 3, 0, 10), PathGenerator.draw_line(dynamics, -0.2, 0.6, 3, 0.3, 0.6, 4, 0, 10)])
+        dynamics.set_path(path)
 
         # initial conditions
         in_angles = dynamics.get_hint_angle()[0]
@@ -98,8 +103,12 @@ if __name__ == '__main__':
         # q3, q4 are the angles of link 3 and 4
         ex1, ey1, ex2, ey2, ex3, ey3, q3, q4 = func_dyn_vector(q1, q2, range(len(q1)))
 
+        x_desired = path.x
+        y_desired = path.y
+
         plt.figure("e3")
         points = np.array([ex3, ey3]).T.reshape(-1, 1, 2)
+        plt.plot(x_desired, y_desired,  linestyle='dashed', color="red")
         segments = np.concatenate([points[:-1], points[1:]], axis=1)
 
         # TODO I do no t think the color mapping over time is working correctly
@@ -194,7 +203,7 @@ if __name__ == '__main__':
         ani = FuncAnimation(fig, animate, frames=int(time.max()/interval) - 1, interval=interval*1000, repeat=False)
 
         if save:
-            f = r"C:\Users\ravio\Documents\2_School\School 2022-2023\1_Spring\Honors Thesis\FiveBarRobot\Saves\animation.gif"
+            f = r"C:\Users\ravio\Documents\2_School\School 2022-2023\1_Spring\Honors Thesis\FiveBarRobot\Simulator\Saves\animation.gif"
             writergif = PillowWriter(fps=30)
             ani.save(f, writer=writergif)
         else:

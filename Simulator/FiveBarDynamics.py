@@ -58,6 +58,9 @@ class Dynamics:
         # Desired start position:
         hint_angle_options = self.inverse_kinematics(self.x_hint, self.y_hint)
 
+        # Path
+        self.path = None
+
         if hint_angle_options:
             hint_angles = hint_angle_options[self.state_hint]
             self.q1_hint = hint_angles[0] % (2 * math.pi)
@@ -314,24 +317,7 @@ class Dynamics:
         # ===========================     Controller time     ==============================
         # ==================================================================================
 
-        if t >= 0.875*4:
-            angles = self.inverse_kinematics(-self.LB * 0.25, 0.6)[0]
-        elif t >= 0.75*4:
-            angles = self.inverse_kinematics(0, 0.5)[2]
-        elif t >= 0.625*4:
-            angles = self.inverse_kinematics(self.LB * 0.25, 0.6)[0]
-        elif t >= 0.5*4:
-            angles = self.inverse_kinematics(self.LB * 0.5, 0.5)[2]
-        elif t >= 0.375*4:
-            angles = self.inverse_kinematics(self.LB * 0.75, 0.6)[0]
-        elif t >= 0.25*4:
-            angles = self.inverse_kinematics(self.LB * 1, 0.5)[2]
-        elif t >= 0.125*4:
-            angles = self.inverse_kinematics(self.LB * 1.25, 0.6)[0]
-        else:
-            angles = self.inverse_kinematics(self.LB * 1.5, 0.5)[2]
-
-        #print(angles)
+        angles = self.inverse_kinematics(*self.path.get_xy_at_time(t))[2]
 
         # dirt basic controller, I give it desired positions manually from here
         goal_q1 = angles[0]
@@ -340,10 +326,10 @@ class Dynamics:
         error_q1 = get_angle_difference(goal_q1, q1)
         error_q2 = get_angle_difference(goal_q2, q2)
 
-        t1 = error_q1 * 10 - qd1 * 2
-        t2 = error_q2 * 10 - qd2 * 2
+        t1 = error_q1 * 5 - qd1 * 1
+        t2 = error_q2 * 5 - qd2 * 1
 
-        max_torque = 5
+        max_torque = 1
 
         if t1 > max_torque:
             t1 = max_torque
@@ -455,7 +441,7 @@ class Dynamics:
         else:
             return []
 
-    def get_closest_solution(self, x, y):
+    def get_closest_solution(self, x, y, offset=0.0):
         """
         Given an x and y coordinate, find a point closest to that point that is a solution to the kinematics
         of the five bar.
@@ -463,17 +449,18 @@ class Dynamics:
         TODO This does not account for when the base is too far apart, check for big and small circle collision
         :param x: The desired x position
         :param y: The desired y position
-        :return: An array of the x and y position that meet the solution criteria.
+        :param offset: an amount to offset a point by, protects against rounding errors
+        :return: An array of the x and y position that meet the solution criteria offset by the given amount.
         """
         # find the distance values for the left circle
         left_distance = math.sqrt(x ** 2 + y ** 2)
-        left_min_distance = abs(self.a1 - self.a3)
-        left_max_distance = abs(self.a1 + self.a3)
+        left_min_distance = abs(self.a1 - self.a3) + offset
+        left_max_distance = abs(self.a1 + self.a3) - offset
 
         # find the distance values for the right circle
         right_distance = math.sqrt((x - self.LB) ** 2 + y ** 2)
-        right_min_distance = abs(self.a2 - self.a4)
-        right_max_distance = abs(self.a2 + self.a4)
+        right_min_distance = abs(self.a2 - self.a4) + offset
+        right_max_distance = abs(self.a2 + self.a4) - offset
 
         if left_distance == 0 or right_distance == 0:
             raise ValueError("Divide by zero error, distance to join cannot be 0. "
@@ -500,6 +487,7 @@ class Dynamics:
                         # If true, return the closest intersection point
                         return [x1, math.copysign(y1, y)]
                     else:
+                        # If not in the triangle, find the value closest to the circle
                         return [x / left_distance * left_min_distance, y / left_distance * left_min_distance]
                 else:
                     # If on the left side, check if the point is within the intersection triangle
@@ -554,13 +542,29 @@ class Dynamics:
 
     def cartesian_distance_to_singularity(self, x, y):
         """
-        Given an x and a y position, outputs the cartesian distances to all possible singularities
+        Given an x and a y position, outputs the cartesian distances to the closest singularity
         :param x: The x position of the robot in the robot frame
         :param y: The y position of the robot in the robot frame
-        :return: A matrix of the lengths to each singularity. Should always be of length 4 like so: [L1, L2, L3, L4]
-
+        :return: A matrix of the lengths to each singularity for each mode like so: [[L1...], [L2...], [L3...], [L4...]]
         """
-        pass
+
+        # Find the first kind of singularity
+        #   sing
+        #    ||
+        #    ||
+        # (xm, ym)
+        #    /\
+        #   /  \
+
+        # Depends on the mode we're in... need a good way to determine this
+        # Find the overlapping point
+        x_m = (self.LB**2 - self.a2**2 + self.a1**2)/(2 * self.LB)
+        y_m1 = math.sqrt(self.a1**2 - x_m**2)
+        y_m2 = -y_m1
+
+        # Find all points that cause the overlap
+
+
 
     def forward_kinematics(self, q1, q2, q3, q4):
         """
@@ -578,3 +582,6 @@ class Dynamics:
         y2 = self.a2 * math.sin(q2) + self.a4 * math.sin(q2 + q4)
 
         return [x1, x2, y1, y2]
+
+    def set_path(self, path):
+        self.path = path
