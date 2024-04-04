@@ -42,9 +42,9 @@ if __name__ == '__main__':
         a_length_matrix = [.335, .335, .6025, .6025]
         bottom_length = 0.4925
 
-        initial_x = 0.9065
-        initial_y = 0
-        initial_state = 0
+        initial_x = 0.6
+        initial_y = 0.4
+        initial_state = 2
 
         # mass_matrix, length_matrix
         dynamics = FiveBarDynamics.Dynamics(bottom_length, mass_matrix, length_matrix, a_length_matrix, initial_x, initial_y, initial_state)

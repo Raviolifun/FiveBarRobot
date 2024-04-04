@@ -2,6 +2,34 @@ import numpy as np
 from scipy.interpolate import interp1d
 
 
+def draw_arc(dynamics, x0, y0, x1, y1, x2, y2, ti, tf, state, resolution):
+    """
+    Finds a list of angles from position (x0, y0) to (x1, y1) to (x2, y2) at a given resolution between time instance t0 and t1
+    This is a very basic mapping from the xy frame to the angular frame of the robot
+    :param dynamics: the dynamics of choice for the system
+    :param x0: Initial x point
+    :param y0: Initial y point
+    :param x1: Second x point
+    :param y1: second y point
+    :param x2: Final x point
+    :param y2: Final y point
+    :param ti: Initial time
+    :param tf: Final time
+    :param state: Chosen state for movement
+    :param resolution: Resolution of the output
+    :return: Returns a path object with the x, y and t for every point.
+    """
+
+    # TODO Implement
+    pass
+
+
+# def draw_spline(dynamics, x0, y0, x1, y1, x2, y2, ti, tf, state, resolution):
+#
+#     # TODO Implement
+#     pass
+
+
 def draw_line(dynamics, x0, y0, t0, x1, y1, t1, state, resolution):
     """
     Finds a list of angles from position (x0, y0) to (x1, y1) at a given resolution between time instance t0 and t1

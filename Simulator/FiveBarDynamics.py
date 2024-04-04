@@ -317,7 +317,7 @@ class Dynamics:
         # ===========================     Controller time     ==============================
         # ==================================================================================
 
-        angles = self.inverse_kinematics(*self.path.get_xy_at_time(t))[0]
+        angles = self.inverse_kinematics(*self.path.get_xy_at_time(t))[2]
 
         # dirt basic controller, I give it desired positions manually from here
         goal_q1 = angles[0]
@@ -326,10 +326,10 @@ class Dynamics:
         error_q1 = get_angle_difference(goal_q1, q1)
         error_q2 = get_angle_difference(goal_q2, q2)
 
-        t1 = error_q1 * 150 - qd1 * 5
-        t2 = error_q2 * 155 - qd2 * 5
+        t1 = error_q1 * 5 - qd1 * 1
+        t2 = error_q2 * 5 - qd2 * 1
 
-        max_torque = 5
+        max_torque = 1
 
         if t1 > max_torque:
             t1 = max_torque
@@ -545,10 +545,26 @@ class Dynamics:
         Given an x and a y position, outputs the cartesian distances to the closest singularity
         :param x: The x position of the robot in the robot frame
         :param y: The y position of the robot in the robot frame
-        :return: A matrix of the lengths to each singularity. Should always be of length 4 like so: [L1, L2, L3, L4]
-
+        :return: A matrix of the lengths to each singularity for each mode like so: [[L1...], [L2...], [L3...], [L4...]]
         """
-        pass
+
+        # Find the first kind of singularity
+        #   sing
+        #    ||
+        #    ||
+        # (xm, ym)
+        #    /\
+        #   /  \
+
+        # Depends on the mode we're in... need a good way to determine this
+        # Find the overlapping point
+        x_m = (self.LB**2 - self.a2**2 + self.a1**2)/(2 * self.LB)
+        y_m1 = math.sqrt(self.a1**2 - x_m**2)
+        y_m2 = -y_m1
+
+        # Find all points that cause the overlap
+
+
 
     def forward_kinematics(self, q1, q2, q3, q4):
         """
